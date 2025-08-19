@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Sagar H R & Co.</title>
+    <meta name="description" content="Read the latest articles and insights on tax, finance, and compliance from the experts at Sagar H R & Co.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="assets/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-blue: #0d47a1; 
+            --primary-blue-hover: #0a3880; 
+            --surface-container: #f3f4f6;
+        } 
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #f9fafb;
+        }
+        .text-primary { color: var(--primary-blue); } 
+        .bg-primary { background-color: var(--primary-blue); }
+        .hover\:bg-primary-hover:hover { background-color: var(--primary-blue-hover); }
+        .nav-active { color: var(--primary-blue) !important; font-weight: 600; }
+
+        .page-header h1 { font-weight: 800; }
+        .section-heading { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; text-align: center; }
+
+        .article-card {
+            background-color: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+        .article-card-content { padding: 1.25rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .article-card-title { font-size: 1.125rem; font-weight: 700; line-height: 1.4; }
+        .article-card-description { color: #4b5563; margin-top: 0.5rem; flex-grow: 1; font-size: 0.95rem; }
+        .article-card-footer { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; }
+
+        .info-card { background-color: white; border-radius: 1rem; border: 1px solid #e5e7eb; overflow: hidden; }
+        .info-card-header { padding: 1.25rem; background-color: var(--surface-container); border-bottom: 1px solid #e5e7eb; }
+        .info-card-header h3 { font-size: 1.25rem; font-weight: 700; }
+        .info-card-body { padding: 1.25rem 1.75rem; }
+        
+        .filter-btn {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .filter-btn:hover { background-color: var(--surface-container); }
+        .filter-btn.active {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50"></header>
+    
+    <main>
+        <div class="bg-white page-header">
+            <div class="container mx-auto px-6 py-12 md:py-16 text-center">
+                <h1 class="text-4xl md:text-5xl text-gray-900">Financial Insights</h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Stay informed with our latest articles, weekly updates, and expert analysis on tax and compliance.</p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 pt-16 pb-12">
+            <h2 class="section-heading text-gray-900">Featured Insight</h2>
+            <a href="insights/new-income-tax-bill-2025.html" class="block w-full max-w-5xl mx-auto group">
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-shadow group-hover:shadow-xl">
+                    <div class="p-8">
+                        <p class="text-primary font-semibold uppercase tracking-wide">Income Tax</p>
+                        <h3 class="mt-2 text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-primary transition-colors">Key Highlights of the New Income Tax Bill, 2025</h3>
+                        <p class="mt-4 text-lg text-gray-600">The Indian Parliament has passed a landmark piece of legislation to replace the long-standing Income Tax Act of 1961. This new bill aims to simplify and modernize India's direct tax system. Discover the key changes that will impact you.</p>
+                        <p class="mt-6 font-semibold text-primary">Read the full article &rarr;</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="container mx-auto px-6 py-12">
+            <h2 class="section-heading text-gray-900">All Articles</h2>
+
+            <div class="max-w-4xl mx-auto mb-8">
+                <div class="mb-4">
+                    <input type="search" id="search-input" placeholder="Search articles by title or keyword..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none">
+                </div>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="income-tax">Income Tax</button>
+                    <button class="filter-btn" data-filter="gst">GST</button>
+                    <button class="filter-btn" data-filter="economy">Economy</button>
+                </div>
+            </div>
+
+            <div id="articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <div class="article-card" data-category="income-tax">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 18, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/new-income-tax-bill-2025.html" class="text-gray-900 hover:text-primary">Key Highlights of the New Income Tax Bill, 2025</a></h3>
+                        <p class="article-card-description">The new bill aims to simplify direct tax law, making it easier to read, understand, and implement.</p>
+                        <div class="article-card-footer"><a href="insights/new-income-tax-bill-2025.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                <div class="article-card" data-category="gst">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 17, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/gst-reforms-2.0.html" class="text-gray-900 hover:text-primary">GST 2.0: Major Reforms on the Horizon</a></h3>
+                        <p class="article-card-description">"GST 2.0" aims to simplify the tax structure by reducing tax slabs, potentially boosting the economy.</p>
+                        <div class="article-card-footer"><a href="insights/gst-reforms-2.0.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                <div class="article-card" data-category="income-tax">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 16, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/tds-tcs-changes-2025.html" class="text-gray-900 hover:text-primary">TDS and TCS Changes from April 2025</a></h3>
+                        <p class="article-card-description">Significant changes in TDS and TCS provisions will come into effect, aiming to reduce compliance burdens.</p>
+                         <div class="article-card-footer"><a href="insights/tds-tcs-changes-2025.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                <div class="article-card" data-category="income-tax">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 15, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/house-property-income.html" class="text-gray-900 hover:text-primary">Clarity on Income from House Property</a></h3>
+                        <p class="article-card-description">The revised Bill has clarified key provisions related to calculating income from house property.</p>
+                         <div class="article-card-footer"><a href="insights/house-property-income.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                <div class="article-card" data-category="gst">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 14, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/gst-compliance-updates.html" class="text-gray-900 hover:text-primary">Upcoming GST Compliance Changes in 2025</a></h3>
+                        <p class="article-card-description">Businesses need to be aware of several changes, including mandatory multi-factor authentication (MFA).</p>
+                         <div class="article-card-footer"><a href="insights/gst-compliance-updates.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                <div class="article-card" data-category="economy">
+                    <div class="article-card-content">
+                        <p class="text-sm text-gray-500">August 13, 2025</p>
+                        <h3 class="article-card-title mt-2"><a href="insights/sp-rating-upgrade.html" class="text-gray-900 hover:text-primary">S&P Upgrades India's Sovereign Credit Rating</a></h3>
+                        <p class="article-card-description">S&P Global Ratings has raised India's long-term sovereign credit rating to “BBB” from “BBB-”.</p>
+                         <div class="article-card-footer"><a href="insights/sp-rating-upgrade.html" class="text-primary font-semibold inline-flex items-center">Read More &rarr;</a></div>
+                    </div>
+                </div>
+                 <div id="no-results-message" class="hidden text-center text-gray-600 col-span-full">
+                    No articles found. Try a different search or filter.
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white">
+            <div class="container mx-auto px-6 py-16">
+                 <h2 class="section-heading text-gray-900">Weekly Updates</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <h3 class="text-primary">For the Week of August 18, 2025</h3>
+                        </div>
+                        <div class="info-card-body">
+                            <ul class="space-y-4 list-disc list-inside text-gray-700">
+                                <li><strong>Economic Outlook</strong>: S&P has upgraded India's sovereign credit rating, citing strong growth. The stock market reacted positively, with the Sensex and Nifty surging.</li>
+                                <li><strong>GST</strong>: The government is moving forward with "GST 2.0," which aims to rationalize the rate structure, likely to two main slabs.</li>
+                                <li><strong>Income Tax</strong>: The new Income Tax Bill, 2025, has been passed. Key changes include a higher tax rebate limit and an increased standard deduction.</li>
+                                <li><strong>Company Law & Auditing</strong>: The MCA has extended the deadline for the dematerialisation of shares for private companies. New rules will mandate an audit trail feature in accounting software.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="main-footer" class="bg-gray-800 text-white pt-16 pb-8"></footer>
+    
+    <button id="back-to-top-btn" class="bg-primary text-white rounded-full p-3 shadow-lg hover:bg-primary-hover">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>

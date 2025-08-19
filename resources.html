@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Resources | Sagar H R & Co.</title>
+    <meta name="description" content="Access important links, tax checklists, a tax calculator, due date reminders, and other resources from Sagar H R & Co.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="assets/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --primary-blue-hover: #0a3880;
+            --surface-container: #f3f4f6;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--surface-container);
+        }
+        .text-primary { color: var(--primary-blue); }
+        .bg-primary { background-color: var(--primary-blue); }
+        .hover\:bg-primary-hover:hover { background-color: var(--primary-blue-hover); }
+        .nav-active { color: var(--primary-blue) !important; font-weight: 600; }
+        .resource-card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .resource-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        /* Styles for the Accordion */
+        .accordion-item {
+            background-color: #f9fafb; /* gray-50 */
+            border: 1px solid #e5e7eb; /* gray-200 */
+            border-radius: 0.75rem;
+            overflow: hidden; 
+        }
+        .accordion-item > summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        .accordion-item[open] > summary {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .accordion-item > summary::-webkit-details-marker {
+            display: none;
+        }
+        .accordion-item > summary .arrow {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item[open] > summary .arrow {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            padding: 0.5rem 1rem;
+        }
+        /* Styles for Category Badges */
+        .badge { display: inline-block; margin-top: 0.25rem; font-size: 0.75rem; line-height: 1rem; font-weight: 500; padding: 0.125rem 0.625rem; border-radius: 0.375rem; }
+        .badge-gst { color: #1d4ed8; background-color: #dbeafe; } /* Blue */
+        .badge-it { color: #b91c1c; background-color: #fee2e2; } /* Red */
+        .badge-tds { color: #15803d; background-color: #dcfce7; } /* Green */
+        .badge-roc { color: #7e22ce; background-color: #f3e8ff; } /* Purple */
+        .badge-payroll { color: #b45309; background-color: #ffedd5; } /* Orange */
+        
+        /* Styles for Filter Buttons */
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .filter-btn.active {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+        .filter-btn:not(.active) {
+            background-color: white;
+            color: #4b5563; /* gray-600 */
+            border: 1px solid #d1d5db; /* gray-300 */
+        }
+        .filter-btn:not(.active):hover {
+            background-color: #f3f4f6; /* gray-100 */
+        }
+    </style>
+</head>
+<body data-path-prefix="../" class="text-gray-800">
+
+    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50"></header>
+
+    <main>
+        <div class="bg-white">
+            <div class="container mx-auto px-6 py-16 md:py-20 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Client Resources</h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Useful tools, links, and checklists to help you stay informed and compliant.</p>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="resource-card">
+                        <h2 class="text-2xl font-bold mb-4">Important Links</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-500 mb-2">Direct Tax</h3>
+                                <div class="space-y-2">
+                                    <a href="https://www.incometax.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">Income Tax E-Filing</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://www.tdscpc.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">TDS (TRACES)</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">Apply for PAN Card</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                </div>
+                            </div>
+                             <div>
+                                <h3 class="text-lg font-semibold text-gray-500 mb-2">Indirect Tax</h3>
+                                <div class="space-y-2">
+                                    <a href="https://www.gst.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">GST Portal</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://ewaybillgst.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">E-Way Bill Portal</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://einvoice1.gst.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">E-Invoicing Portal</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                </div>
+                            </div>
+                             <div>
+                                <h3 class="text-lg font-semibold text-gray-500 mb-2">Other Registrations</h3>
+                                <div class="space-y-2">
+                                    <a href="https://www.mca.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">Ministry of Corporate Affairs</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://udyamregistration.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">MSME (Udyam) Registration</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://www.dgft.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">Import Export Code (DGFT)</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                </div>
+                            </div>
+                             <div>
+                                <h3 class="text-lg font-semibold text-gray-500 mb-2">Payroll & State Compliance</h3>
+                                <div class="space-y-2">
+                                    <a href="https://unifiedportal-emp.epfindia.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">EPFO Employer Portal</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://www.esic.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">ESIC Portal</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                    <a href="https://prerana.karnataka.gov.in/" target="_blank" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"><p class="font-medium text-primary">Karnataka PT (e-prerana)</p><p class="ml-auto text-gray-400">&rarr;</p></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <h2 class="text-2xl font-bold mb-4">Document Checklists</h2>
+                        <div class="space-y-3">
+                            <a href="resources/checklist-new-client.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">New Client Onboarding</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                            <hr>
+                            <a href="resources/checklist-salaried.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">For Salaried Individuals</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                            <a href="resources/checklist-capital-gains.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">For Capital Gains</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                             <a href="resources/checklist-business-presumptive.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">For Business (Presumptive)</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                             <a href="resources/checklist-business-audit.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">For Business (Tax Audit)</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                            <a href="resources/checklist-gst.html" class="flex items-center p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                                <p class="font-semibold text-primary">For GST Filings</p><p class="ml-auto text-gray-400">&rarr;</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="resource-card">
+                        <h2 class="text-2xl font-bold mb-6 text-center">Income Tax Calculator (FY 2024-25)</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <label for="income" class="block text-gray-700 font-medium mb-2">Your Annual Income (₹)</label>
+                                <input type="number" id="income" placeholder="e.g., 800000" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="regime" class="block text-gray-700 font-medium mb-2">Tax Regime</label>
+                                <select id="regime" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                                    <option value="new" selected>New Regime (Default)</option>
+                                    <option value="old">Old Regime</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button id="calculateBtn" class="w-full mt-6 bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary-hover transition-all duration-300">Calculate Tax</button>
+                        <div id="result" class="mt-6 text-center"></div>
+                    </div>
+                    <div class="resource-card">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Compliance Calendar (FY 2025-26)</h2>
+                        <div id="filter-buttons" class="flex flex-wrap justify-center gap-2 mb-4">
+                            </div>
+                        <div class="space-y-2" id="due-date-accordion">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer id="main-footer" class="bg-gray-800 text-white pt-16 pb-8"></footer>
+    
+    <button id="back-to-top-btn" class="bg-primary text-white rounded-full p-3 shadow-lg hover:bg-primary-hover">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
+    </button>
+
+    <script src="../main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tax Calculator script
+            const calculateBtn = document.getElementById('calculateBtn');
+            const incomeInput = document.getElementById('income');
+            const regimeSelect = document.getElementById('regime');
+            const resultDiv = document.getElementById('result');
+
+            calculateBtn.addEventListener('click', () => {
+                const income = parseFloat(incomeInput.value);
+                const regime = regimeSelect.value;
+                if (isNaN(income) || income < 0) {
+                    resultDiv.innerHTML = `<p class="text-red-500">Please enter a valid income.</p>`;
+                    return;
+                }
+                let tax = 0;
+                let taxableIncome = income;
+                if (regime === 'new') {
+                    taxableIncome -= 50000;
+                    if (taxableIncome > 1500000) tax += (taxableIncome - 1500000) * 0.30;
+                    if (taxableIncome > 1200000) tax += (Math.min(taxableIncome, 1500000) - 1200000) * 0.20;
+                    if (taxableIncome > 900000) tax += (Math.min(taxableIncome, 1200000) - 900000) * 0.15;
+                    if (taxableIncome > 600000) tax += (Math.min(taxableIncome, 900000) - 600000) * 0.10;
+                    if (taxableIncome > 300000) tax += (Math.min(taxableIncome, 600000) - 300000) * 0.05;
+                } else {
+                    taxableIncome -= 50000;
+                    if (taxableIncome > 1000000) tax += (taxableIncome - 1000000) * 0.30;
+                    if (taxableIncome > 500000) tax += (Math.min(taxableIncome, 1000000) - 500000) * 0.20;
+                    if (taxableIncome > 250000) tax += (Math.min(taxableIncome, 500000) - 250000) * 0.05;
+                }
+                if ((regime === 'new' && taxableIncome <= 700000) || (regime === 'old' && taxableIncome <= 500000)) {
+                    tax = 0;
+                }
+                const cess = tax * 0.04;
+                const totalTax = tax > 0 ? tax + cess : 0;
+                resultDiv.innerHTML = `
+                    <p class="text-lg mt-2">Income Tax: <span class="font-bold">₹ ${Math.round(tax).toLocaleString('en-IN')}</span></p>
+                    <p class="text-lg mt-2">Health & Edu Cess (4%): <span class="font-bold">₹ ${Math.round(cess).toLocaleString('en-IN')}</span></p>
+                    <hr class="my-3 border-t">
+                    <p class="text-2xl font-bold text-primary">Total Tax Liability: ₹ ${Math.round(totalTax).toLocaleString('en-IN')}</p>
+                    <p class="text-xs mt-4 text-gray-500">Disclaimer: This is a basic calculation for illustrative purposes and does not include deductions (like 80C), etc. Please consult with us for accurate tax planning.</p>
+                `;
+            });
+
+            // Due Date Calendar data and logic
+            const dueDateData = {
+                "April 2025": [ { day: 7, desc: "TDS/TCS Payment for March", cat: "tds" }, { day: 10, desc: "GSTR-7 & GSTR-8 (Mar)", cat: "gst" }, { day: 11, desc: "GSTR-1 (Monthly, Mar)", cat: "gst" }, { day: 13, desc: "GSTR-1 (QRMP, Jan-Mar)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Mar)", cat: "payroll" }, { day: 18, desc: "CMP-08 (Jan-Mar)", cat: "gst" }, { day: 20, desc: "GSTR-3B (Monthly, Mar)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 22, desc: "GSTR-3B (QRMP, Jan-Mar)", cat: "gst" }, { day: 30, desc: "GSTR-4 (Annual, FY 24-25)", cat: "gst" }, { day: 30, desc: "Karnataka PT (Annual)", cat: "payroll" }, { day: 30, desc: "Form 11 (LLP Annual Return)", cat: "roc" } ],
+                "May 2025": [ { day: 7, desc: "TDS/TCS Payment (Apr)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Apr)", cat: "gst" }, { day: 12, desc: "ESI Half-Yearly Return (Oct-Mar)", cat: "payroll" }, { day: 15, desc: "TDS Quarterly Return (Q4, FY 24-25)", cat: "tds" }, { day: 15, desc: "TCS Quarterly Return (Q4, FY 24-25)", cat: "tds" }, { day: 15, desc: "PF & ESI Payment (Apr)", cat: "payroll" }, { day: 20, desc: "GSTR-3B (Monthly, Apr)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" } ],
+                "June 2025": [ { day: 7, desc: "TDS/TCS Payment (May)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, May)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (May)", cat: "payroll" }, { day: 15, desc: "Advance Tax (1st Inst.)", cat: "it" }, { day: 20, desc: "GSTR-3B (Monthly, May)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 30, desc: "DPT-3 (Return of Deposits)", cat: "roc" } ],
+                "July 2025": [ { day: 7, desc: "TDS/TCS Payment (Jun)", cat: "tds" }, { day: 10, desc: "GSTR-7 & GSTR-8 (Jun)", cat: "gst" }, { day: 11, desc: "GSTR-1 (Monthly, Jun)", cat: "gst" }, { day: 13, desc: "GSTR-1 (QRMP, Apr-Jun)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Jun)", cat: "payroll" }, { day: 15, desc: "TCS Quarterly Return (Q1)", cat: "tds" }, { day: 18, desc: "CMP-08 (Apr-Jun)", cat: "gst" }, { day: 20, desc: "GSTR-3B (Monthly, Jun)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 22, desc: "GSTR-3B (QRMP, Apr-Jun)", cat: "gst" }, { day: 31, desc: "TDS Quarterly Return (Q1)", cat: "tds" } ],
+                "August 2025": [ { day: 7, desc: "TDS/TCS Payment (Jul)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Jul)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Jul)", cat: "payroll" }, { day: 20, desc: "GSTR-3B (Monthly, Jul)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" } ],
+                "September 2025": [ { day: 7, desc: "TDS/TCS Payment (Aug)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Aug)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Aug)", cat: "payroll" }, { day: 15, desc: "Advance Tax (2nd Inst.)", cat: "it" }, { day: 15, desc: "ITR Filing (Non-Audit)", cat: "it" }, { day: 20, desc: "GSTR-3B (Monthly, Aug)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 30, desc: "DIR-3 KYC Filing", cat: "roc" }, { day: 30, desc: "Tax Audit Report Filing", cat: "it" } ],
+                "October 2025": [ { day: 7, desc: "TDS/TCS Payment (Sep)", cat: "tds" }, { day: 10, desc: "GSTR-7 & GSTR-8 (Sep)", cat: "gst" }, { day: 11, desc: "GSTR-1 (Monthly, Sep)", cat: "gst" }, { day: 13, desc: "GSTR-1 (QRMP, Jul-Sep)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Sep)", cat: "payroll" }, { day: 15, desc: "TCS Quarterly Return (Q2)", cat: "tds" }, { day: 18, desc: "CMP-08 (Jul-Sep)", cat: "gst" }, { day: 20, desc: "GSTR-3B (Monthly, Sep)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 22, desc: "GSTR-3B (QRMP, Jul-Sep)", cat: "gst" }, { day: 30, desc: "AOC-4 (Annual Financials)", cat: "roc" }, { day: 31, desc: "TDS Quarterly Return (Q2)", cat: "tds" }, { day: 31, desc: "ITR Filing (Audit)", cat: "it" }, { day: 31, desc: "MSME-1 (Apr-Sep Period)", cat: "roc" } ],
+                "November 2025": [ { day: 7, desc: "TDS/TCS Payment (Oct)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Oct)", cat: "gst" }, { day: 12, desc: "ESI Half-Yearly Return (Apr-Sep)", cat: "payroll" }, { day: 15, desc: "PF & ESI Payment (Oct)", cat: "payroll" }, { day: 20, desc: "GSTR-3B (Monthly, Oct)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 29, desc: "MGT-7 (Annual Return)", cat: "roc" } ],
+                "December 2025": [ { day: 7, desc: "TDS/TCS Payment (Nov)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Nov)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Nov)", cat: "payroll" }, { day: 15, desc: "Advance Tax (3rd Inst.)", cat: "it" }, { day: 20, desc: "GSTR-3B (Monthly, Nov)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 31, desc: "Belated/Revised ITR", cat: "it" }, { day: 31, desc: "GSTR-9 & 9C (Annual)", cat: "gst" } ],
+                "January 2026": [ { day: 7, desc: "TDS/TCS Payment (Dec)", cat: "tds" }, { day: 10, desc: "GSTR-7 & GSTR-8 (Dec)", cat: "gst" }, { day: 11, desc: "GSTR-1 (Monthly, Dec)", cat: "gst" }, { day: 13, desc: "GSTR-1 (QRMP, Oct-Dec)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Dec)", cat: "payroll" }, { day: 15, desc: "TCS Quarterly Return (Q3)", cat: "tds" }, { day: 18, desc: "CMP-08 (Oct-Dec)", cat: "gst" }, { day: 20, desc: "GSTR-3B (Monthly, Dec)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 22, desc: "GSTR-3B (QRMP, Oct-Dec)", cat: "gst" }, { day: 31, desc: "TDS Quarterly Return (Q3)", cat: "tds" } ],
+                "February 2026": [ { day: 7, desc: "TDS/TCS Payment (Jan)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Jan)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Jan)", cat: "payroll" }, { day: 20, desc: "GSTR-3B (Monthly, Jan)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" } ],
+                "March 2026": [ { day: 7, desc: "TDS/TCS Payment (Feb)", cat: "tds" }, { day: 11, desc: "GSTR-1 (Monthly, Feb)", cat: "gst" }, { day: 15, desc: "PF & ESI Payment (Feb)", cat: "payroll" }, { day: 15, desc: "Advance Tax (Final Inst.)", cat: "it" }, { day: 20, desc: "GSTR-3B (Monthly, Feb)", cat: "gst" }, { day: 20, desc: "Karnataka PT (Monthly)", cat: "payroll" }, { day: 31, desc: "Updated Return (ITR-U) for FY 22-23", cat: "it" } ]
+            };
+            
+            const categoryMap = {
+                gst: { label: 'GST', class: 'badge-gst' },
+                it: { label: 'Income Tax', class: 'badge-it' },
+                tds: { label: 'TDS/TCS', class: 'badge-tds' },
+                roc: { label: 'ROC', class: 'badge-roc' },
+                payroll: { label: 'Payroll', class: 'badge-payroll' }
+            };
+
+            const accordionContainer = document.getElementById('due-date-accordion');
+            const filterButtonsContainer = document.getElementById('filter-buttons');
+            let currentFilter = 'all';
+
+            function renderCalendar() {
+                accordionContainer.innerHTML = '';
+                const displayDate = new Date('2025-08-16');
+                const displayMonthIndex = displayDate.getMonth();
+                const displayYear = displayDate.getFullYear();
+
+                Object.keys(dueDateData).forEach((monthYear) => {
+                    const filteredItems = (currentFilter === 'all') ? dueDateData[monthYear] : dueDateData[monthYear].filter(item => item.cat === currentFilter);
+
+                    if (filteredItems.length === 0) return;
+
+                    const monthName = monthYear.split(' ')[0];
+                    const year = parseInt(monthYear.split(' ')[1]);
+                    const isOpen = (year === displayYear && monthName === new Date(displayYear, displayMonthIndex).toLocaleString('default', { month: 'long' }));
+                    
+                    const details = document.createElement('details');
+                    details.className = 'accordion-item';
+                    if(isOpen) details.setAttribute('open', '');
+
+                    const summary = document.createElement('summary');
+                    summary.innerHTML = `${monthYear} <span class="arrow"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span>`;
+                    
+                    const content = document.createElement('div');
+                    content.className = 'accordion-content';
+                    const ul = document.createElement('ul');
+                    ul.className = 'space-y-2';
+                    
+                    filteredItems.sort((a, b) => a.day - b.day).forEach((item, index) => {
+                        const isLastItem = index === filteredItems.length - 1;
+                        const li = document.createElement('li');
+                        li.className = `flex items-center space-x-4 py-4 ${isLastItem ? '' : 'border-b border-gray-200'}`;
+                        
+                        const dateDiv = document.createElement('div');
+                        dateDiv.className = 'text-center flex-shrink-0 w-16';
+                        const dayP = document.createElement('p');
+                        dayP.className = 'text-2xl font-bold text-primary';
+                        dayP.textContent = item.day;
+                        const monthP = document.createElement('p');
+                        monthP.className = 'text-sm text-gray-500 uppercase';
+                        monthP.textContent = monthName.substring(0,3);
+                        dateDiv.appendChild(dayP);
+                        dateDiv.appendChild(monthP);
+                        
+                        const descDiv = document.createElement('div');
+                        descDiv.className = 'flex-grow';
+                        const descP = document.createElement('p');
+                        descP.className = 'font-medium text-gray-800';
+                        descP.textContent = item.desc;
+                        const badge = document.createElement('span');
+                        const catInfo = categoryMap[item.cat];
+                        badge.className = `badge ${catInfo.class}`;
+                        badge.textContent = catInfo.label;
+                        descDiv.appendChild(descP);
+                        descDiv.appendChild(badge);
+                        
+                        li.appendChild(dateDiv);
+                        li.appendChild(descDiv);
+                        ul.appendChild(li);
+                    });
+
+                    content.appendChild(ul);
+                    details.appendChild(summary);
+                    details.appendChild(content);
+                    accordionContainer.appendChild(details);
+                });
+
+                const accordions = accordionContainer.querySelectorAll('.accordion-item');
+                accordions.forEach(acc => {
+                    acc.addEventListener('toggle', (e) => {
+                        if (e.target.open) {
+                            accordions.forEach(otherAcc => {
+                                if (otherAcc !== e.target) {
+                                    otherAcc.removeAttribute('open');
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+
+            function renderFilterButtons() {
+                const filters = { 'all': 'All', ...categoryMap };
+                Object.keys(filters).forEach(key => {
+                    const button = document.createElement('button');
+                    button.className = 'filter-btn';
+                    button.dataset.filter = key;
+                    button.textContent = (key === 'all') ? filters[key] : filters[key].label;
+                    if (key === 'all') button.classList.add('active');
+                    filterButtonsContainer.appendChild(button);
+                });
+
+                filterButtonsContainer.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'BUTTON') {
+                        currentFilter = e.target.dataset.filter;
+                        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+                        renderCalendar();
+                    }
+                });
+            }
+
+            renderFilterButtons();
+            renderCalendar();
+        });
+    </script>
+</body>
+</html>

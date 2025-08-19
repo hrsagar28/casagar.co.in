@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist for Salaried Individuals | Sagar H R & Co.</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../assets/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --primary-blue-hover: #0a3880;
+            --surface-container: #f3f4f6;
+            --primary-container: #d8e2ff;
+            --on-primary-container: #001a40;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--surface-container); color: #374151; }
+        .bg-primary { background-color: var(--primary-blue); }
+        .hover\:bg-primary-hover:hover { background-color: var(--primary-blue-hover); }
+        .text-primary { color: var(--primary-blue); }
+        .header-bg { background-color: var(--primary-container); }
+        .header-text { color: var(--on-primary-container); }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
+        .tooltip-container { position: relative; display: inline-block; cursor: pointer; }
+        .tooltip-text { visibility: hidden; width: 250px; background-color: #374151; color: #fff; text-align: center; border-radius: 6px; padding: 8px; position: absolute; z-index: 1; bottom: 125%; left: 50%; margin-left: -125px; opacity: 0; transition: opacity 0.3s; font-size: 0.875rem; font-weight: 500; }
+        .tooltip-container:hover .tooltip-text { visibility: visible; opacity: 1; }
+    </style>
+</head>
+<body data-path-prefix="../">
+    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 no-print"></header>
+    <main>
+        <div class="header-bg no-print">
+            <div class="container mx-auto px-6 py-16 md:py-20 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold header-text">Checklist for Salaried Individuals</h1>
+                <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">For FY 2024-25 (AY 2025-26). Covers salary and rental income.</p>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 py-12 max-w-4xl print-container">
+            <div class="flex justify-end mb-6 no-print">
+                 <a href="checklist-salaried-print.html" target="_blank" class="bg-primary text-white font-semibold py-2 px-5 rounded-full hover:bg-primary-hover transition-opacity flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                    Print
+                </a>
+            </div>
+             <div class="card space-y-10">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Basic Information</h2>
+                    <ul class="text-lg bg-gray-50 rounded-xl overflow-hidden border">
+                        <li class="p-4 border-b">Your <b>Income Tax Login ID and Password</b>.</li>
+                        <li class="p-4 border-b">Copy of your <b>PAN Card and Aadhaar Card</b>.</li>
+                        <li class="p-4 border-b">Your primary <b>Mobile Number and Email ID</b>.</li>
+                        <li class="p-4">List of all operative <b>bank accounts</b> with IFSC codes.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Income & Deductions</h2>
+                    <ul class="text-lg bg-gray-50 rounded-xl overflow-hidden border">
+                        <li class="p-4 border-b"><b>Form 16</b>: From all employers if you changed jobs.</li>
+                        <li class="p-4 border-b"><b>Salary Arrears</b>: If received, please provide Form 10E 
+                            <span class="tooltip-container text-primary font-bold ml-1">[?]
+                                <span class="tooltip-text">A form required to claim tax relief on salary received in arrears or advance.</span>
+                            </span>.
+                        </li>
+                        <li class="p-4 border-b"><b>Bank Statements</b>: For all savings and salary accounts.</li>
+                        <li class="p-4 border-b"><b>Other Income</b>: Details of interest on savings/FDs.</li>
+                        <li class="p-4 border-b"><b>Foreign Income/Assets</b>: Details of any foreign assets or income.</li>
+                        <li class="p-4 bg-gray-100">
+                            <p class="font-semibold mb-2">Proofs for Tax-Saving Deductions (Old Regime):</p>
+                            <ul class="list-disc list-inside ml-4 text-gray-700 space-y-1">
+                                <li><b>80C</b>: Proofs for LIC, PPF, ELSS, NSC, Tuition Fees, etc.</li>
+                                <li><b>Home Loan</b>: Annual interest certificate from your bank.</li>
+                                <li><b>HRA</b>
+                                    <span class="tooltip-container text-primary font-bold ml-1">[?]
+                                        <span class="tooltip-text">House Rent Allowance. Provide rent receipts to claim exemption. Landlord's PAN is needed if annual rent exceeds ₹1,00,000.</span>
+                                    </span>: Rent receipts.
+                                </li>
+                                <li><b>80D</b>: Health insurance premium receipts.</li>
+                                <li><b>80G</b>: Donation receipts (with institution's PAN).</li>
+                                <li><b>80E</b>: Statement for interest paid on an education loan.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Income from House Property</h2>
+                     <ul class="text-lg bg-gray-50 rounded-xl overflow-hidden border">
+                        <li class="p-4 border-b"><b>Rental Agreements</b> for all rented-out properties.</li>
+                        <li class="p-4 border-b"><b>Municipal Tax Receipts</b>.</li>
+                        <li class="p-4 border-b"><b>Co-owner's Details</b> (Name, PAN, and ownership share %).</li>
+                        <li class="p-4"><b>Home Loan Certificate</b> for the rented property.</li>
+                    </ul>
+                </div>
+                <div class="border-t pt-8 text-center">
+                     <p class="text-gray-700 text-lg"><b>Have other types of income?</b></p>
+                     <p class="mt-2 text-gray-600">
+                        For sale of property or shares, see: <a href="checklist-capital-gains.html" class="font-semibold text-primary hover:underline">Checklist for Capital Gains</a>.<br>
+                        For business or freelance income, see: <a href="checklist-business-presumptive.html" class="font-semibold text-primary hover:underline">Checklist for Business (Presumptive)</a>.
+                     </p>
+                </div>
+                 <div class="border-t pt-8 text-center bg-blue-50 p-6 rounded-lg -m-4 mt-8">
+                     <h3 class="text-2xl font-bold text-primary mb-2">Ready to File?</h3>
+                     <p class="text-gray-600 mb-4">Once you have gathered all the necessary documents, let us know you're ready to proceed.</p>
+                     <a href="../contact.html" class="bg-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-primary-hover transition-opacity inline-block">
+                        I Have My Documents - Contact Us Now
+                     </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="main-footer" class="bg-gray-800 text-white pt-16 pb-8 no-print"></footer>
+
+    <button id="back-to-top-btn" class="bg-primary text-white rounded-full p-3 shadow-lg hover:bg-primary-hover">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
+    </button>
+
+    <script src="../main.js"></script>
+    <script>
+        // Intercept Ctrl+P to use the print-friendly version
+        document.addEventListener('keydown', function(event) {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'p') {
+                event.preventDefault(); // Prevent the default browser print dialog
+                const printLink = document.querySelector('a[href*="-print.html"]');
+                if (printLink) {
+                    printLink.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

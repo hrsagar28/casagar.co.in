@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist for Capital Gains - Sagar H R & Co.</title>
+    <link href="../assets/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .checklist-item::before { content: '☐'; margin-right: 0.75rem; font-size: 1.25rem; }
+        @media print {
+            @page {
+                size: A4;
+                margin: 1in; /* Set a consistent 1-inch margin */
+                /* The following rules hide the browser's default print header and footer */
+                @top-left { content: ""; }
+                @top-center { content: ""; }
+                @top-right { content: ""; }
+                @bottom-left { content: ""; }
+                @bottom-center { content: ""; }
+                @bottom-right { content: ""; }
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            thead { display: table-header-group; }
+            tfoot { display: table-footer-group; }
+            tr, td { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <table class="w-full">
+        <thead>
+            <tr>
+                <td>
+                    <header class="text-center pb-6 border-b-2 border-gray-200">
+                        <h1 class="text-3xl font-bold text-[#0d47a1]">Sagar H R & Co.</h1>
+                        <p class="text-gray-600">KR Mohalla, Mysuru, Karnataka | mail@casagar.co.in</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mt-4">Checklist for Capital Gains (FY 2024-25)</h2>
+                    </header>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <main class="mt-8 space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Sale of Property (Land, Building, etc.)</h3>
+                            <ul class="space-y-3">
+                                <li class="checklist-item"><b>Sale Deed & Purchase Deed</b> of the property.</li>
+                                <li class="checklist-item"><b>Co-owner Details</b>: Name, PAN, and ownership share %.</li>
+                                <li class="checklist-item"><b>Stamp Duty Value</b> (Circle Rate) for both purchase and sale.</li>
+                                <li class="checklist-item">Bills/invoices for any <b>Improvement Costs</b>.</li>
+                                <li class="checklist-item">Invoices for <b>Sale Expenses</b> (e.g., brokerage).</li>
+                                <li class="checklist-item">Proof of <b>Re-investment for Tax Exemption</b> (e.g., new house deed, 54EC bonds).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Sale of Shares / Mutual Funds</h3>
+                            <ul class="space-y-3">
+                                <li class="checklist-item"><b>Broker's P&L and Capital Gains Statement</b> (consolidated).</li>
+                                <li class="checklist-item"><b>Mutual Fund Capital Gains Statement</b> (from AMCs or CAMS/KFintech).</li>
+                                <li class="checklist-item">Details of any <b>inherited/gifted</b> shares or off-market sales.</li>
+                                <li class="checklist-item"><b>FMV Details</b>: Fair Market Value as on Jan 31, 2018 for shares bought prior.</li>
+                                <li class="checklist-item">Details of any <b>capital losses</b> from previous years to be carried forward.</li>
+                            </ul>
+                        </div>
+                    </main>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <footer class="mt-12 text-center text-sm text-gray-500 pt-6 border-t">
+                        <p>Disclaimer: This is an illustrative, not exhaustive, list. Please consult with us for personalized advice.</p>
+                    </footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        window.onload = function() { window.print(); };
+        window.onafterprint = function() { setTimeout(function() { window.close(); }, 100); };
+    </script>
+</body>
+</html>

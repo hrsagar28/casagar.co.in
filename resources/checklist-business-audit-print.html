@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist for Business (Tax Audit) - Sagar H R & Co.</title>
+    <link href="../assets/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .checklist-item::before { content: '☐'; margin-right: 0.75rem; font-size: 1.25rem; }
+        @media print {
+            @page {
+                size: A4;
+                margin: 1in; /* Set a consistent 1-inch margin */
+                /* The following rules hide the browser's default print header and footer */
+                @top-left { content: ""; }
+                @top-center { content: ""; }
+                @top-right { content: ""; }
+                @bottom-left { content: ""; }
+                @bottom-center { content: ""; }
+                @bottom-right { content: ""; }
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            thead { display: table-header-group; }
+            tfoot { display: table-footer-group; }
+            tr, td { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <table class="w-full">
+        <thead>
+            <tr>
+                <td>
+                    <header class="text-center pb-6 border-b-2 border-gray-200">
+                        <h1 class="text-3xl font-bold text-[#0d47a1]">Sagar H R & Co.</h1>
+                        <p class="text-gray-600">KR Mohalla, Mysuru, Karnataka | mail@casagar.co.in</p>
+                        <h2 class="text-2xl font-semibold text-gray-800 mt-4">Checklist for Business (Tax Audit) (FY 2024-25)</h2>
+                    </header>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <main class="mt-8 space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Core Financials & Books of Accounts</h3>
+                            <ul class="space-y-3">
+                                <li class="checklist-item"><b>Complete Books of Accounts</b> (Bank Statements, Sales & Purchase Registers, Ledgers, etc.).</li>
+                                <li class="checklist-item">Finalized <b>Financial Statements</b> (Trial Balance, P&L, Balance Sheet).</li>
+                                <li class="checklist-item">Previous year's <b>Audited Financials and Tax Audit Report</b>.</li>
+                                <li class="checklist-item">A <b>Fixed Asset Register</b> with details of additions/disposals.</li>
+                                <li class="checklist-item"><b>Loan statements</b> for all secured and unsecured loans.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Compliance & Disclosures</h3>
+                            <ul class="space-y-3">
+                                <li class="checklist-item"><b>Statutory Dues (Sec 43B)</b>: Proof of payment for GST, PF, ESI, etc.</li>
+                                <li class="checklist-item"><b>TDS/TCS Compliance</b>: Copies of all returns filed and details of any delayed deposits.</li>
+                                <li class="checklist-item"><b>Expenditure Details</b>: Note of personal expenses, related party transactions, and single cash payments > ₹10,000.</li>
+                                <li class="checklist-item"><b>GST Details for Clause 44</b>: Breakup of total expenditure (GST registered vs. unregistered entities).</li>
+                            </ul>
+                        </div>
+                    </main>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <footer class="mt-12 text-center text-sm text-gray-500 pt-6 border-t">
+                        <p>Disclaimer: This is an illustrative, not exhaustive, list. Please consult with us for personalized advice.</p>
+                    </footer>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        window.onload = function() { window.print(); };
+        window.onafterprint = function() { setTimeout(function() { window.close(); }, 100); };
+    </script>
+</body>
+</html>
