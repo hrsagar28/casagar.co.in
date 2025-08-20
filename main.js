@@ -35,35 +35,156 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- Reusable Custom Select Dropdown Handler ---
-    const initializeCustomSelect = (wrapper) => {
+    // --- REVISED Custom Select Dropdown Handler with Keyboard Accessibility ---
+    const initializeCustomSelect = (wrapper, selectIndex) => {
         if (!wrapper) return;
-        const serviceButton = wrapper.querySelector('button');
+        const trigger = wrapper.querySelector('button');
         const optionsPanel = wrapper.querySelector('.options-panel');
         const selectedOptionText = wrapper.querySelector('.selected-option-text');
         const hiddenInput = wrapper.querySelector('input[type="hidden"]');
         const arrowIcon = wrapper.querySelector('svg');
         const options = optionsPanel.querySelectorAll('li');
-        
-        const toggleDropdown = () => {
-            optionsPanel.classList.toggle('visible');
-            if(arrowIcon) arrowIcon.classList.toggle('rotate-180');
+        let currentIndex = -1;
+        let searchString = '';
+        let searchTimeout;
+
+        // --- Accessibility Enhancements ---
+        trigger.setAttribute('role', 'combobox');
+        trigger.setAttribute('aria-haspopup', 'listbox');
+        trigger.setAttribute('aria-expanded', 'false');
+        optionsPanel.setAttribute('id', `custom-options-${selectIndex}`);
+        trigger.setAttribute('aria-controls', `custom-options-${selectIndex}`);
+        optionsPanel.setAttribute('role', 'listbox');
+        options.forEach((option, optionIndex) => {
+            option.setAttribute('role', 'option');
+            option.setAttribute('id', `custom-option-${selectIndex}-${optionIndex}`);
+            option.setAttribute('aria-selected', 'false');
+            option.setAttribute('tabindex', '-1'); // Make focusable by script, not by Tab
+        });
+        // --- End Accessibility Enhancements ---
+
+        const closeAllSelects = (exceptWrapper) => {
+            document.querySelectorAll('.custom-select-wrapper').forEach(w => {
+                if (w !== exceptWrapper) {
+                    w.querySelector('.options-panel').classList.remove('visible');
+                    w.querySelector('button').setAttribute('aria-expanded', 'false');
+                    if(w.querySelector('svg')) w.querySelector('svg').classList.remove('rotate-180');
+                }
+            });
         };
 
-        serviceButton.addEventListener('click', (e) => {
+        const toggleDropdown = () => {
+            const isVisible = optionsPanel.classList.toggle('visible');
+            trigger.setAttribute('aria-expanded', isVisible);
+            if(arrowIcon) arrowIcon.classList.toggle('rotate-180');
+            if (!isVisible) {
+                trigger.removeAttribute('aria-activedescendant');
+                currentIndex = -1;
+            }
+        };
+
+        const selectOption = (option) => {
+            selectedOptionText.textContent = option.getAttribute('data-value');
+            selectedOptionText.classList.remove('text-gray-500');
+            hiddenInput.value = option.getAttribute('data-value');
+            trigger.classList.remove('border-red-500');
+            
+            options.forEach(opt => opt.setAttribute('aria-selected', 'false'));
+            option.setAttribute('aria-selected', 'true');
+
+            closeAllSelects(); // Close all dropdowns
+            trigger.focus();
+        };
+
+        const updateFocus = () => {
+            options.forEach(opt => opt.classList.remove('bg-gray-100'));
+            if (currentIndex > -1) {
+                options[currentIndex].classList.add('bg-gray-100');
+                options[currentIndex].focus();
+                trigger.setAttribute('aria-activedescendant', options[currentIndex].id);
+            }
+        };
+
+        trigger.addEventListener('click', (e) => {
             e.stopPropagation();
+            closeAllSelects(wrapper); // Close others before toggling this one
             toggleDropdown();
         });
 
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                selectedOptionText.textContent = option.getAttribute('data-value');
-                selectedOptionText.classList.remove('text-gray-500');
-                hiddenInput.value = option.getAttribute('data-value');
-                serviceButton.classList.remove('border-red-500');
-                toggleDropdown();
+        options.forEach((option, index) => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                selectOption(option);
             });
         });
+
+        // Combined handler for all keyboard events on the dropdown
+        const handleKeyDown = (e) => {
+            e.stopPropagation();
+
+            // Handle alphanumeric keys for type-to-select functionality
+            if (e.key.length === 1 && e.key.match(/[a-zA-Z0-9\s]/)) {
+                e.preventDefault();
+                if (!optionsPanel.classList.contains('visible')) {
+                    toggleDropdown();
+                }
+
+                clearTimeout(searchTimeout);
+                searchString += e.key.toLowerCase();
+                searchTimeout = setTimeout(() => { searchString = ''; }, 600); // Reset search string after 600ms of inactivity
+
+                const matchingIndex = Array.from(options).findIndex(opt =>
+                    opt.getAttribute('data-value').toLowerCase().startsWith(searchString)
+                );
+
+                if (matchingIndex > -1) {
+                    currentIndex = matchingIndex;
+                    updateFocus();
+                }
+                return;
+            }
+
+            // Handle navigation and action keys
+            switch (e.key) {
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    if (optionsPanel.classList.contains('visible')) {
+                        if (currentIndex > -1) selectOption(options[currentIndex]);
+                    } else {
+                        toggleDropdown();
+                    }
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    if (!optionsPanel.classList.contains('visible')) toggleDropdown();
+                    currentIndex = currentIndex < options.length - 1 ? currentIndex + 1 : 0;
+                    updateFocus();
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    if (!optionsPanel.classList.contains('visible')) toggleDropdown();
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : options.length - 1;
+                    updateFocus();
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    if (optionsPanel.classList.contains('visible')) {
+                        toggleDropdown();
+                        trigger.focus();
+                    }
+                    break;
+                case 'Tab':
+                    // New: Close dropdown on Tab key press
+                    if (optionsPanel.classList.contains('visible')) {
+                        toggleDropdown();
+                    }
+                    break;
+            }
+        };
+
+        trigger.addEventListener('keydown', handleKeyDown);
+        optionsPanel.addEventListener('keydown', handleKeyDown);
 
         document.addEventListener('click', (e) => {
             if (!wrapper.contains(e.target) && optionsPanel.classList.contains('visible')) {
@@ -98,12 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         return response.json();
                     }
                     return response.json().then(errorData => {
-                        // Correctly look for the 'error' property from Formsubmit's response
                         throw new Error(errorData.error || 'Something went wrong. Please try again.');
                     });
                 })
                 .then(data => {
-                    // Formsubmit returns 'success: "true"' on successful submission
                     if (String(data.success).toLowerCase() === "true") {
                         formElement.innerHTML = `<div class="text-center py-10 flex flex-col items-center justify-center h-full"><svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h3 class="text-2xl font-bold mt-4">Thank You!</h3><p class="mt-2 text-gray-600">Your message has been sent successfully. We will get back to you shortly.</p></div>`;
                     } else {
