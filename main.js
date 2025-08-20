@@ -407,4 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('share-linkedin').href = linkedInLink;
     }
 
-    //
+    // --- Load Header and Footer ---
+    loadComponent('_header.html', 'main-header');
+    loadComponent('_footer.html', 'main-footer');
+});
