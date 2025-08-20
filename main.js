@@ -1,5 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Mobile Menu Handler ---
+    const initializeMobileMenu = () => {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        if (!mobileMenuBtn || !mobileMenu) return;
+        
+        const toggleMenu = (open) => {
+            if (open) {
+                document.body.classList.add('mobile-menu-open');
+            } else {
+                document.body.classList.remove('mobile-menu-open');
+            }
+        };
+        
+        // Open menu
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu(true);
+        });
+        
+        // Close menu - close button
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        }
+        
+        // Close menu - overlay click
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        }
+        
+        // Close menu - ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
+                toggleMenu(false);
+            }
+        });
+        
+        // Highlight current page in mobile menu
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        mobileNavLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('bg-blue-50', 'text-primary', 'font-semibold');
+            }
+        });
+    };
+
     // --- Component Loader (Loads Header & Footer) ---
     const loadComponent = (componentPath, elementId) => {
         const pathPrefix = document.body.hasAttribute('data-path-prefix') ? document.body.getAttribute('data-path-prefix') : '';
@@ -18,7 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 element.innerHTML = doc.body.innerHTML;
-                if (elementId === 'main-header') initializeNav();
+                if (elementId === 'main-header') {
+                    initializeNav();
+                    initializeMobileMenu(); // Initialize mobile menu after header loads
+                }
                 if (elementId === 'main-footer') updateFooterYear();
             })
             .catch(error => console.error('Error loading component:', error));
@@ -350,14 +407,4 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('share-linkedin').href = linkedInLink;
     }
 
-    // --- INITIALIZE ALL DYNAMIC COMPONENTS ---
-    loadComponent('_header.html', 'main-header');
-    loadComponent('_footer.html', 'main-footer');
-    document.querySelectorAll('.custom-select-wrapper').forEach((wrapper, index) => {
-    initializeCustomSelect(wrapper, index);
-});
-    
-    // Initialize AJAX form handlers
-    handleAjaxFormSubmit(document.getElementById('contact-form'));
-    handleAjaxFormSubmit(document.getElementById('careers-form'));
-});
+    //
