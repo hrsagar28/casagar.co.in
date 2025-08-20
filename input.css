@@ -55,3 +55,13 @@
     color: #2563eb !important;
     font-weight: 600;
 }
+
+/* ===== New, more robust hamburger menu animation styles ===== */
+.mobile-menu-open #mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-open #mobile-menu-panel {
+    transform: translateX(0);
+}

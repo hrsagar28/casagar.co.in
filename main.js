@@ -3,19 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile Menu Handler ---
     const initializeMobileMenu = () => {
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu'); // This is now the main container/overlay
         const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
         if (!mobileMenuBtn || !mobileMenu) return;
 
         const toggleMenu = (open) => {
-            if (open) {
-                document.body.classList.add('mobile-menu-open');
-            } else {
-                document.body.classList.remove('mobile-menu-open');
-            }
+            document.body.classList.toggle('mobile-menu-open', open);
         };
 
         // Open menu
@@ -32,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close menu - overlay click
-        if (mobileMenuOverlay) {
-            mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.addEventListener('click', (e) => {
+            // Only close if the click is on the overlay itself, not the panel
+            if (e.target.id === 'mobile-menu') {
                 toggleMenu(false);
-            });
-        }
+            }
+        });
 
         // Close menu - ESC key
         document.addEventListener('keydown', (e) => {
@@ -54,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- Component Loader (Loads Header & Footer) ---
+     // --- Component Loader (Loads Header & Footer) ---
     const loadComponent = (componentPath, elementId) => {
         const pathPrefix = document.body.hasAttribute('data-path-prefix') ? document.body.getAttribute('data-path-prefix') : '';
         fetch(`${pathPrefix}${componentPath}`)

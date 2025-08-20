@@ -588,6 +588,10 @@ video {
   }
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .visible {
   visibility: visible;
 }
@@ -626,6 +630,10 @@ video {
 
 .z-50 {
   z-index: 50;
+}
+
+.z-\[60\] {
+  z-index: 60;
 }
 
 .col-span-full {
@@ -1634,6 +1642,17 @@ video {
 .nav-active {
   color: #2563eb !important;
   font-weight: 600;
+}
+
+/* ===== New, more robust hamburger menu animation styles ===== */
+
+.mobile-menu-open #mobile-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-open #mobile-menu-panel {
+  transform: translateX(0);
 }
 
 .hover\:-translate-y-1:hover {
