@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        
+
         if (!mobileMenuBtn || !mobileMenu) return;
-        
+
         const toggleMenu = (open) => {
             if (open) {
                 document.body.classList.add('mobile-menu-open');
@@ -17,34 +17,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('mobile-menu-open');
             }
         };
-        
+
         // Open menu
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleMenu(true);
         });
-        
+
         // Close menu - close button
         if (mobileMenuClose) {
             mobileMenuClose.addEventListener('click', () => {
                 toggleMenu(false);
             });
         }
-        
+
         // Close menu - overlay click
         if (mobileMenuOverlay) {
             mobileMenuOverlay.addEventListener('click', () => {
                 toggleMenu(false);
             });
         }
-        
+
         // Close menu - ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
                 toggleMenu(false);
             }
         });
-        
+
         // Highlight current page in mobile menu
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         mobileNavLinks.forEach(link => {
@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 element.innerHTML = doc.body.innerHTML;
-                if (elementId === 'main-header') {
+                if (elementId === 'main-header' || elementId === 'mobile-menu-placeholder') {
                     initializeNav();
-                    initializeMobileMenu(); // Initialize mobile menu after header loads
+                    initializeMobileMenu(); // Initialize mobile menu after header or mobile menu loads
                 }
                 if (elementId === 'main-footer') updateFooterYear();
             })
@@ -86,7 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('#nav-links a');
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         navLinks.forEach(link => {
-            if (link.getAttribute('href').split('/').pop() === currentPage && !link.classList.contains('bg-primary')) {
+            // Check if the link is the contact button by looking for its background class
+            const isContactButton = link.classList.contains('bg-blue-600');
+            
+            // Only add the 'nav-active' class if the link matches the current page AND it's not the contact button
+            if (link.getAttribute('href').split('/').pop() === currentPage && !isContactButton) {
                 link.classList.add('nav-active');
             }
         });
@@ -406,6 +410,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('share-email').href = emailLink;
         document.getElementById('share-linkedin').href = linkedInLink;
     }
+
+    // --- Create a placeholder and load the mobile menu ---
+    const mobileMenuPlaceholder = document.createElement('div');
+    mobileMenuPlaceholder.id = 'mobile-menu-placeholder';
+    document.body.appendChild(mobileMenuPlaceholder);
+    loadComponent('_mobile-menu.html', 'mobile-menu-placeholder');
 
     // --- Load Header and Footer ---
     loadComponent('_header.html', 'main-header');
