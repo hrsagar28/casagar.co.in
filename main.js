@@ -353,7 +353,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INITIALIZE ALL DYNAMIC COMPONENTS ---
     loadComponent('_header.html', 'main-header');
     loadComponent('_footer.html', 'main-footer');
-    document.querySelectorAll('.custom-select-wrapper').forEach(initializeCustomSelect);
+    document.querySelectorAll('.custom-select-wrapper').forEach((wrapper, index) => {
+    initializeCustomSelect(wrapper, index);
+});
     
     // Initialize AJAX form handlers
     handleAjaxFormSubmit(document.getElementById('contact-form'));
