@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Sagar H R & Co.</title>
-    <meta name="description" content="Contact Sagar H R & Co. in Mysuru for a consultation. Find our address, email, phone number, and a map to our office.">
+    <title>Contact Us - Professional CA Services | Sagar H R & Co.</title>
+    <meta name="description" content="Contact Sagar H R & Co., leading Chartered Accountants in Mysuru. Get expert consultation for tax, audit, GST, and financial advisory services. Office in KR Mohalla, Mysuru.">
+    <meta name="keywords" content="CA contact Mysuru, chartered accountant consultation, tax consultant Mysuru, GST consultant Karnataka, audit services contact, financial advisor Mysuru">
+    
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Sagar H R & Co.">
+    <meta name="geo.region" content="IN-KA">
+    <meta name="geo.placename" content="Mysuru, Karnataka">
+    <meta name="geo.position" content="12.300417;76.651778">
+    <meta name="ICBM" content="12.300417, 76.651778">
+    
+    <meta property="og:title" content="Contact Us - Professional CA Services | Sagar H R & Co.">
+    <meta property="og:description" content="Get in touch with our expert team of Chartered Accountants in Mysuru for comprehensive financial and tax solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.casagar.co.in/contact.html">
+    <meta property="og:image" content="https://www.casagar.co.in/assets/logo.png">
+    <meta property="og:site_name" content="Sagar H R & Co.">
+    <meta property="og:locale" content="en_IN">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us - Professional CA Services | Sagar H R & Co.">
+    <meta name="twitter:description" content="Get in touch with our expert team of Chartered Accountants in Mysuru for comprehensive financial and tax solutions.">
+    <meta name="twitter:image" content="https://www.casagar.co.in/assets/logo.png">
+    
+    <link rel="canonical" href="https://www.casagar.co.in/contact.html">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="assets/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,10 +35,10 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": "AccountingService",
       "name": "Sagar H R & Co.",
-      "image": "https://www.casagar.co.in/assets/icai-logo.png",
-      "url": "https://www.casagar.co.in/contact.html",
+      "image": "https://www.casagar.co.in/assets/logo.png",
+      "url": "https://www.casagar.co.in",
       "telephone": "+91-94823-59455",
       "email": "mail@casagar.co.in",
       "address": {
@@ -29,121 +52,396 @@
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           "opens": "10:00",
           "closes": "14:00"
         },
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           "opens": "16:00",
           "closes": "20:00"
         }
-      ]
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 12.300417,
+          "longitude": 76.651778
+        },
+        "geoRadius": "50000"
+      },
+      "hasMap": "https://maps.google.com/maps?q=12.300417,76.651778"
     }
     </script>
 
     <style>
-        :root {
-            --primary-blue: #0d47a1;
-            --primary-blue-hover: #0a3880;
-            --surface-container: #f3f4f6;
+        :root { 
+            --primary-blue: #0d47a1; 
+            --primary-blue-hover: #0a3880; 
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--surface-container);
-        }
+        body { font-family: 'Inter', sans-serif; }
         .text-primary { color: var(--primary-blue); }
         .bg-primary { background-color: var(--primary-blue); }
         .hover\:bg-primary-hover:hover { background-color: var(--primary-blue-hover); }
         .nav-active { color: var(--primary-blue) !important; font-weight: 600; }
-        .options-panel {
-            max-height: 220px; overflow-y: auto;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            opacity: 0; transform: translateY(-0.5rem); pointer-events: none;
+        .focus\:ring-primary:focus { --tw-ring-color: var(--primary-blue); }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .options-panel.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        
+        .hero-gradient {
+            background: linear-gradient(-45deg, #0a3880, #0d47a1, #083371, #1565c0, #062962);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .contact-method { transition: all 0.3s ease; }
+        .contact-method:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(13, 71, 161, 0.15);
+        }
+        
+        .form-field { position: relative; }
+        .form-field.error input,
+        .form-field.error select,
+        .form-field.error textarea {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        .form-field.valid input,
+        .form-field.valid select,
+        .form-field.valid textarea {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .form-field.error .error-message { display: block; }
+        
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #D1D5DB;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.1);
+        }
+        
+        input[type="radio"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--primary-blue);
+            border-color: #D1D5DB;
+            focus:ring-color: var(--primary-blue);
+        }
+        input[type="radio"]:checked {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .success-notification { animation: slideDown 0.5s ease; }
+        
+        .options-panel {
+            max-height: 220px;
+            overflow-y: auto;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            opacity: 0;
+            transform: translateY(-0.5rem);
+            pointer-events: none;
+        }
+        .options-panel.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        .file-upload-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        .file-upload-label {
+            display: block;
+            padding: 0.75rem 1rem;
+            border: 2px dashed #D1D5DB;
+            border-radius: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .file-upload-label:hover {
+            border-color: var(--primary-blue);
+            background-color: #f0f7ff;
+        }
+        .file-upload-label.has-file {
+            border-style: solid;
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .copy-success { animation: pulse 0.5s ease; }
+        
+        .contact-info-item { margin-bottom: 1.5rem; }
+        .contact-info-item:last-child { margin-bottom: 0; }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
     <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50"></header>
 
     <main>
-        <div class="bg-white">
-            <div class="container mx-auto px-6 py-16 md:py-20 text-center">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Get in Touch</h1>
-                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">We're here to help. Reach out to start a conversation about your financial needs.</p>
+        <section class="hero-gradient text-white py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6">Get in Touch</h1>
+                <p class="text-xl text-gray-100 max-w-2xl mx-auto">
+                    We're here to help with all your financial and tax consulting needs. Reach out for expert guidance and personalized solutions.
+                </p>
+                <div class="mt-8 flex justify-center gap-4 flex-wrap">
+                    <a href="#contact-form" class="inline-block bg-white text-primary px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300" aria-label="Scroll to contact form">
+                        Send Message
+                    </a>
+                    <a href="tel:+919482359455" class="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300" aria-label="Call us directly">
+                        Call Now
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <section id="contact-details" class="py-20 md:py-28">
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Choose How to Reach Us</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <a href="tel:+919482359455" class="contact-method bg-gray-50 p-6 rounded-xl text-center hover:bg-gray-100 transition-all animate-on-scroll" aria-label="Call us">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">Call Us</h3>
+                        <p class="text-sm text-gray-600">+91 94823 59455</p>
+                    </a>
+                    <a href="mailto:mail@casagar.co.in" class="contact-method bg-gray-50 p-6 rounded-xl text-center hover:bg-gray-100 transition-all animate-on-scroll" aria-label="Email us">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">Email</h3>
+                        <p class="text-sm text-gray-600">mail@casagar.co.in</p>
+                    </a>
+                    <a href="https://wa.me/919482359455" target="_blank" class="contact-method bg-gray-50 p-6 rounded-xl text-center hover:bg-gray-100 transition-all animate-on-scroll" aria-label="WhatsApp us">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
+                        <p class="text-sm text-gray-600">Quick Chat</p>
+                    </a>
+                    <a href="https://maps.google.com/maps?q=12.300417,76.651778" target="_blank" class="contact-method bg-gray-50 p-6 rounded-xl text-center hover:bg-gray-100 transition-all animate-on-scroll" aria-label="Get directions to our office">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1">Get Directions</h3>
+                        <p class="text-sm text-gray-600">Visit Our Office</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-details" class="py-16 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-12">
-
-                    <div class="bg-white p-8 pb-4 rounded-2xl shadow-lg">
-                        <form id="contact-form" action="https://formsubmit.co/mail@casagar.co.in" method="POST">
+                    
+                    <div id="contact-form" class="bg-white p-8 md:p-10 rounded-2xl shadow-lg animate-on-scroll">
+                        <form id="contact-form-element" action="https://formsubmit.co/mail@casagar.co.in" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="_ajax" value="true">
+                            <input type="hidden" name="_subject" value="New Contact Inquiry - Sagar H R & Co.">
+                            <input type="hidden" name="_template" value="table">
                             
                             <h3 class="text-2xl font-bold mb-2">Send us a Message</h3>
                             <p class="text-gray-600 mb-6">We typically respond within one business day.</p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div><label for="first-name" class="block text-gray-700 font-medium mb-2">First Name</label><input type="text" id="first-name" name="first-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary" required></div>
-                                <div><label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name</label><input type="text" id="last-name" name="last-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary" required></div>
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label><input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary transition-colors" required>
-                            </div>
-                            <div class="mb-4">
-                                <label for="service-button" class="block text-gray-700 font-medium mb-2">How can we help you?</label>
-                                <div class="relative custom-select-wrapper">
-                                    <button type="button" id="service-button" class="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary transition-colors">
-                                        <span class="selected-option-text text-gray-500">Select a service...</span>
-                                        <svg id="arrow-icon" class="h-5 w-5 text-gray-400 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
-                                    </button>
-                                    <div class="options-panel absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl">
-                                        <ul class="py-1">
-                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="GST Registration & Filing">GST Registration & Filing</li>
-                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Income Tax Compliance">Income Tax Compliance</li>
-                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Audit & Assurance">Audit & Assurance</li>
-                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Advisory & Consulting">Advisory & Consulting</li>
-                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Other Inquiry">Other Inquiry</li>
-                                        </ul>
-                                    </div>
-                                    <input type="hidden" id="service" name="service" required>
+                                <div class="form-field">
+                                    <label for="first-name" class="block text-gray-700 font-medium mb-2">First Name <span class="text-red-500" aria-label="required">*</span></label>
+                                    <input type="text" id="first-name" name="first-name" required minlength="2" maxlength="50" placeholder="John" aria-required="true" aria-describedby="first-name-error">
+                                    <div id="first-name-error" class="error-message">Please enter your first name</div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="last-name" class="block text-gray-700 font-medium mb-2">Last Name <span class="text-red-500" aria-label="required">*</span></label>
+                                    <input type="text" id="last-name" name="last-name" required minlength="1" maxlength="50" placeholder="Doe" aria-required="true" aria-describedby="last-name-error">
+                                    <div id="last-name-error" class="error-message">Please enter your last name</div>
                                 </div>
                             </div>
-                            <div class="mb-4"><label for="message" class="block text-gray-700 font-medium mb-2">Message</label><textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary" required></textarea></div>
-                            <button type="submit" class="w-full bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary-hover transition-all duration-300">Submit Inquiry</button>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="form-field">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address <span class="text-red-500" aria-label="required">*</span></label>
+                                    <input type="email" id="email" name="email" required placeholder="john.doe@example.com" aria-required="true" aria-describedby="email-error">
+                                    <div id="email-error" class="error-message">Please enter a valid email address</div>
+                                </div>
+                                <div class="form-field">
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number <span class="text-red-500" aria-label="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" aria-required="true" aria-describedby="phone-error">
+                                    <div id="phone-error" class="error-message">Please enter a valid 10-digit mobile number</div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 form-field">
+                                <label for="company" class="block text-gray-700 font-medium mb-2">Company/Organization Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name (optional)">
+                            </div>
+                            
+                            <div class="mb-4 form-field">
+                                <label for="service-button" class="block text-gray-700 font-medium mb-2">How can we help you? <span class="text-red-500" aria-label="required">*</span></label>
+                                <div class="relative custom-select-wrapper">
+                                    <button type="button" id="service-button" class="w-full px-4 py-3 text-left bg-white border border-gray-300 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-primary transition-colors" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="service-label">
+                                        <span class="selected-option-text text-gray-500">Select a service...</span>
+                                        <svg class="h-5 w-5 text-gray-400 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                                    </button>
+                                    <div class="options-panel absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl" role="listbox">
+                                        <ul class="py-1">
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="GST Registration & Filing" role="option">GST Registration & Filing</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Income Tax Compliance" role="option">Income Tax Compliance</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Audit & Assurance" role="option">Audit & Assurance</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Company Registration" role="option">Company Registration</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="TDS/TCS Compliance" role="option">TDS/TCS Compliance</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Advisory & Consulting" role="option">Advisory & Consulting</li>
+                                            <li class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary cursor-pointer" data-value="Other Inquiry" role="option">Other Inquiry</li>
+                                        </ul>
+                                    </div>
+                                    <input type="hidden" id="service" name="service" required aria-required="true">
+                                </div>
+                                <div class="error-message">Please select a service</div>
+                            </div>
+                            
+                            <div class="mb-4 form-field">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message <span class="text-red-500" aria-label="required">*</span></label>
+                                <textarea id="message" name="message" rows="4" required minlength="10" maxlength="1000" placeholder="Please describe your requirements in detail..." aria-required="true" aria-describedby="message-error message-count"></textarea>
+                                <div id="message-error" class="error-message">Please enter your message (minimum 10 characters)</div>
+                                <div class="text-xs text-gray-500 mt-1" id="message-count">0/1000 characters</div>
+                            </div>
+                            
+                            <div class="mb-4 form-field">
+                                <label for="attachment" class="block text-gray-700 font-medium mb-2">Attach Document (Optional)</label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" aria-describedby="attachment-info">
+                                    <label for="attachment" class="file-upload-label" id="attachment-label">
+                                        <svg class="w-6 h-6 mx-auto mb-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                        <span class="text-sm text-gray-600">Click to upload or drag and drop</span>
+                                        <span id="attachment-info" class="text-xs text-gray-500 block mt-1">PDF, DOC, DOCX, XLS, XLSX, JPG, PNG (Max 10MB)</span>
+                                    </label>
+                                </div>
+                                <div class="error-message">File size must be less than 10MB</div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Preferred Contact Method</label>
+                                <div class="flex gap-4 flex-wrap">
+                                    <label class="flex items-center cursor-pointer"><input type="radio" name="contact-method" value="phone" class="mr-2 text-primary focus:ring-primary" checked><span>Phone</span></label>
+                                    <label class="flex items-center cursor-pointer"><input type="radio" name="contact-method" value="email" class="mr-2 text-primary focus:ring-primary"><span>Email</span></label>
+                                    <label class="flex items-center cursor-pointer"><input type="radio" name="contact-method" value="whatsapp" class="mr-2 text-primary focus:ring-primary"><span>WhatsApp</span></label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-primary-hover transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                                Submit Inquiry
+                            </button>
                         </form>
                     </div>
 
-                    <div class="space-y-8">
+                    <div class="space-y-8 animate-on-scroll">
                         <div class="bg-white p-8 rounded-2xl shadow-lg">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-2xl font-bold">Contact Information</h3>
-                                <button id="copy-all-btn" title="Copy all contact details" class="p-2 rounded-full hover:bg-gray-100 transition-colors" data-copy="Sagar H R & Co.
+                            <div class="flex justify-between items-start mb-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-2">Contact Information</h3>
+                                    <p class="text-gray-600">Find us at our office, drop us a line, or send an email. We're here to assist you.</p>
+                                </div>
+                                <button id="copy-all-btn" title="Copy all contact details" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Copy all contact information to clipboard" data-copy="Sagar H R & Co.
 1479, 2nd Floor, Thyagaraja Road, KR Mohalla, Mysuru, Karnataka - 570004
 Email: mail@casagar.co.in
 Phone: +91 94823 59455
 Working Hours: Monday to Saturday: 10 AM to 2 PM and 4 PM to 8 PM">
-                                    <svg id="copy-icon" class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
-                                    <svg id="check-icon" class="w-6 h-6 text-green-500 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                                    <svg id="copy-icon" class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+                                    <svg id="check-icon" class="w-6 h-6 text-green-500 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                                 </button>
                             </div>
-                            <div class="space-y-4">
-                                <p class="flex items-start text-gray-700"><svg class="w-6 h-6 mr-3 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>1479, 2nd Floor, Thyagaraja Road, KR Mohalla, Mysuru, Karnataka - 570004</span></p>
-                                <p class="flex items-center text-gray-700"><svg class="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><a href="mailto:mail@casagar.co.in" class="hover:text-primary">mail@casagar.co.in</a></p>
-                                <p class="flex items-center text-gray-700"><svg class="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><a href="tel:+919482359455" class="hover:text-primary">+91 94823 59455</a></p>
-                                <p class="flex items-center text-gray-700"><svg class="w-6 h-6 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Monday to Saturday: 10 AM to 2 PM and 4 PM to 8 PM</span></p>
+                            <div class="space-y-6">
+                                <div class="flex items-start contact-info-item">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Our Address</h4>
+                                        <p class="text-gray-600">1479, 2nd Floor, Thyagaraja Road,<br>KR Mohalla, Mysuru, Karnataka - 570004</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start contact-info-item">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
+                                        <a href="tel:+919482359455" class="text-gray-600 hover:text-primary transition-colors">+91 94823 59455</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start contact-info-item">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+                                        <a href="mailto:mail@casagar.co.in" class="text-gray-600 hover:text-primary transition-colors">mail@casagar.co.in</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start contact-info-item">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 mb-1">Working Hours</h4>
+                                        <p class="text-gray-600">Mon - Sat: 10:00 AM - 2:00 PM & 4:00 PM - 8:00 PM<br>Sunday: Closed</p>
+                                    </div>
+                                </div>
                             </div>
-                            <hr class="my-6 border-t border-gray-200">
-                            <h3 class="text-xl font-bold mb-4">Have a Quick Question?</h3>
-                            <a href="https://wa.me/919482359455" target="_blank" class="w-full text-center block bg-green-500 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300">Chat on WhatsApp</a>
                         </div>
+                        
                         <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-                           <iframe src="https://maps.google.com/maps?q=12.300417,76.651778&z=17&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://maps.google.com/maps?q=12.300417,76.651778&z=17&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sagar H R & Co. Office Location" aria-label="Map showing office location of Sagar H R & Co. in Mysuru"></iframe>
                         </div>
                     </div>
                 </div>
@@ -153,10 +451,183 @@ Working Hours: Monday to Saturday: 10 AM to 2 PM and 4 PM to 8 PM">
 
     <footer id="main-footer" class="bg-gray-800 text-white pt-16 pb-8"></footer>
 
-    <button id="back-to-top-btn" class="bg-primary text-white rounded-full p-3 shadow-lg hover:bg-primary-hover">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
+    <button id="back-to-top-btn" class="bg-primary text-white rounded-full p-3 shadow-lg hover:bg-primary-hover transition-all duration-300" aria-label="Scroll back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" /></svg>
     </button>
     
     <script src="main.js"></script>
+    
+    <script>
+        class ContactFormValidator {
+            constructor(formId) {
+                this.form = document.getElementById(formId);
+                this.init();
+            }
+
+            init() {
+                // REMOVED: The submit handler event listener is no longer needed here.
+                
+                const inputs = this.form.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => {
+                        this.clearError(input);
+                        if (input.id === 'message') {
+                            this.updateCharCount(input);
+                        }
+                    });
+                });
+
+                const customSelects = this.form.querySelectorAll('.custom-select-wrapper');
+                customSelects.forEach(select => {
+                    const hiddenInput = select.querySelector('input[type="hidden"]');
+                    if (hiddenInput) {
+                        hiddenInput.addEventListener('change', () => this.validateField(hiddenInput));
+                    }
+                });
+            }
+
+            validateField(field) {
+                const fieldContainer = field.closest('.form-field');
+                if (!fieldContainer) return true;
+                let isValid = true;
+                const fieldType = field.type || field.tagName.toLowerCase();
+                fieldContainer.classList.remove('error', 'valid');
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    isValid = false;
+                }
+                if (fieldType === 'email' && field.value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) isValid = false;
+                }
+                if (field.id === 'phone' && field.value) {
+                    const phoneRegex = /^[6-9][0-9]{9}$/;
+                    if (!phoneRegex.test(field.value.replace(/\s+/g, ''))) isValid = false;
+                }
+                if ((field.id === 'first-name' || field.id === 'last-name') && field.value) {
+                    if (field.value.trim().length < 2) isValid = false;
+                }
+                if (field.id === 'message' && field.value) {
+                    if (field.value.trim().length < 10) isValid = false;
+                }
+                if (fieldType === 'file' && field.files.length > 0) {
+                    const file = field.files[0];
+                    const maxSize = 10 * 1024 * 1024; // 10MB
+                    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/jpeg', 'image/png'];
+                    if (file.size > maxSize || !allowedTypes.includes(file.type)) isValid = false;
+                }
+                if (field.value.trim() || fieldType === 'file') {
+                    fieldContainer.classList.add(isValid ? 'valid' : 'error');
+                }
+                return isValid;
+            }
+
+            clearError(field) {
+                const fieldContainer = field.closest('.form-field');
+                if (fieldContainer) fieldContainer.classList.remove('error');
+            }
+
+            updateCharCount(textarea) {
+                const maxLength = 1000;
+                const currentLength = textarea.value.length;
+                const charCountElement = document.getElementById('message-count');
+                if (charCountElement) {
+                    charCountElement.textContent = `${currentLength}/${maxLength} characters`;
+                    charCountElement.classList.toggle('text-red-500', currentLength > maxLength);
+                }
+            }
+
+            validateForm() {
+                let isFormValid = true;
+                this.form.querySelectorAll('input[required], textarea[required], select[required]').forEach(field => {
+                    if (!this.validateField(field)) isFormValid = false;
+                });
+                return isFormValid;
+            }
+
+            // REMOVED: The entire handleSubmit function is gone.
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            new ContactFormValidator('contact-form-element');
+            const messageField = document.getElementById('message');
+            if (messageField) {
+                const charCountElement = document.getElementById('message-count');
+                if (charCountElement) charCountElement.textContent = '0/1000 characters';
+            }
+        });
+
+        document.getElementById('attachment')?.addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name;
+            const fileLabel = document.getElementById('attachment-label');
+            const fieldContainer = this.closest('.form-field');
+            if (fileName) {
+                const file = e.target.files[0];
+                const maxSize = 10 * 1024 * 1024;
+                const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'image/jpeg', 'image/png'];
+                if (file.size <= maxSize && allowedTypes.includes(file.type)) {
+                    fileLabel.classList.add('has-file');
+                    fileLabel.innerHTML = `<svg class="w-6 h-6 mx-auto mb-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-sm font-medium text-gray-700">${fileName}</span><span class="text-xs text-gray-500 block mt-1">Click to change file</span>`;
+                    fieldContainer.classList.remove('error');
+                    fieldContainer.classList.add('valid');
+                } else {
+                    fieldContainer.classList.add('error');
+                    fileLabel.classList.remove('has-file');
+                }
+            }
+        });
+
+        document.getElementById('phone')?.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            e.target.value = value;
+        });
+
+        document.getElementById('copy-all-btn')?.addEventListener('click', function() {
+            const textToCopy = this.getAttribute('data-copy');
+            const copyIcon = document.getElementById('copy-icon');
+            const checkIcon = document.getElementById('check-icon');
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+                this.classList.add('copy-success');
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                    this.classList.remove('copy-success');
+                }, 2000);
+            }).catch(err => console.error('Failed to copy:', err));
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            scrollObserver.observe(element);
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.options-panel.visible').forEach(panel => {
+                    panel.classList.remove('visible');
+                    const button = panel.previousElementSibling;
+                    if (button) button.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
