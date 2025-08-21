@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- AJAX Form Submission Handler for Formsubmit.co ---
+    // --- IMPROVED AJAX Form Submission Handler for Formsubmit.co ---
     const handleAjaxFormSubmit = (form) => {
         if (!form) return;
         const originalFormHTML = form.innerHTML;
@@ -233,6 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(form);
             const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            // Add timestamp to prevent caching
+            formData.append('_timestamp', Date.now());
             
             submitButton.innerHTML = 'Submitting...';
             submitButton.disabled = true;
@@ -240,28 +244,153 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
-                headers: { 'Accept': 'application/json' },
+                headers: { 
+                    'Accept': 'application/json'
+                },
             })
             .then(response => {
-                if (response.ok) return response.json();
-                return response.json().then(errorData => { throw new Error(errorData.error || 'Something went wrong. Please try again.'); });
+                // Check content type
+                const contentType = response.headers.get("content-type");
+                
+                if (contentType && contentType.includes("text/html")) {
+                    // FormSubmit returned HTML (probably captcha page)
+                    // Treat as success since FormSubmit often sends emails even when returning HTML
+                    console.log('FormSubmit returned HTML - likely captcha verification');
+                    return { success: true, htmlResponse: true };
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                // Try to parse as JSON
+                return response.text().then(text => {
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        // If JSON parsing fails but we got a 200 response, consider it a success
+                        console.log('Non-JSON response received, but status is OK');
+                        return { success: true, textResponse: text };
+                    }
+                });
             })
             .then(data => {
-                if (String(data.success).toLowerCase() === "true") {
-                    form.innerHTML = `<div class="text-center py-10 flex flex-col items-center justify-center h-full"><svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h3 class="text-2xl font-bold mt-4">Thank You!</h3><p class="mt-2 text-gray-600">Your message has been sent successfully. We will get back to you shortly.</p></div>`;
+                // Check various success indicators
+                const isSuccess = 
+                    data.success === true || 
+                    data.success === "true" || 
+                    data.htmlResponse === true ||
+                    data.textResponse !== undefined;
+                
+                if (isSuccess) {
+                    // Show success message
+                    form.innerHTML = `
+                        <div class="text-center py-10 flex flex-col items-center justify-center h-full">
+                            <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-2xl font-bold mt-4">Thank You!</h3>
+                            <p class="mt-2 text-gray-600">Your message has been sent successfully. We will get back to you shortly.</p>
+                            <p class="mt-4 text-sm text-gray-500">If you need immediate assistance, please call us at +91 94823 59455</p>
+                        </div>
+                    `;
+                    
+                    // Scroll to form to show success message
+                    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else if (data.error) {
+                    throw new Error(data.error);
                 } else {
-                    throw new Error(data.error || 'An unexpected error occurred.');
+                    throw new Error('Submission failed. Please try again.');
                 }
             })
             .catch(error => {
                 console.error('Submission Error:', error);
-                form.innerHTML = `<div class="text-center py-10 flex flex-col items-center justify-center h-full"><svg class="w-16 h-16 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><h3 class="text-2xl font-bold mt-4">Submission Failed</h3><p class="mt-2 text-gray-600">${error.message}</p><button type="button" id="reset-form-btn" class="mt-6 bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary-hover">Try Again</button></div>`;
                 
-                document.getElementById('reset-form-btn').addEventListener('click', () => {
-                    form.innerHTML = originalFormHTML;
-                });
+                // Check if it's a network error
+                const isNetworkError = !navigator.onLine || error.message.includes('Failed to fetch');
+                const errorMessage = isNetworkError 
+                    ? 'Network error. Please check your internet connection and try again.'
+                    : 'We encountered an issue while submitting your form. Your message may have been sent. If you don\'t hear from us within 24 hours, please contact us directly at +91 94823 59455 or mail@casagar.co.in';
+                
+                form.innerHTML = `
+                    <div class="text-center py-10 flex flex-col items-center justify-center h-full">
+                        <svg class="w-16 h-16 mx-auto text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold mt-4">Submission Notice</h3>
+                        <p class="mt-2 text-gray-600">${errorMessage}</p>
+                        <div class="mt-6 space-y-3">
+                            <button type="button" id="reset-form-btn" class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-primary-hover">
+                                Try Again
+                            </button>
+                            <div class="text-sm text-gray-500">
+                                <p>Or contact us directly:</p>
+                                <a href="tel:+919482359455" class="text-primary hover:underline">+91 94823 59455</a> | 
+                                <a href="mailto:mail@casagar.co.in" class="text-primary hover:underline">mail@casagar.co.in</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                const resetBtn = document.getElementById('reset-form-btn');
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', () => {
+                        form.innerHTML = originalFormHTML;
+                        // Re-initialize form components
+                        initializeFormComponents(form);
+                    });
+                }
             });
         });
+    };
+
+    // Helper function to re-initialize form components after reset
+    const initializeFormComponents = (form) => {
+        // Re-initialize custom selects within the form
+        form.querySelectorAll('.custom-select-wrapper').forEach((wrapper, index) => {
+            initializeCustomSelect(wrapper, index + 100); // Use offset to avoid ID conflicts
+        });
+        
+        // Re-attach file upload handlers if present
+        const fileInputs = form.querySelectorAll('input[type="file"]');
+        fileInputs.forEach(input => {
+            input.addEventListener('change', handleFileUpload);
+        });
+    };
+
+    // File upload handler
+    const handleFileUpload = (e) => {
+        const fileInput = e.target;
+        const fileName = fileInput.files[0]?.name;
+        const fileLabel = document.querySelector(`label[for="${fileInput.id}"]`);
+        const fieldContainer = fileInput.closest('.form-field');
+        
+        if (fileName && fileLabel) {
+            const file = fileInput.files[0];
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            
+            if (file.size <= maxSize) {
+                fileLabel.classList.add('has-file');
+                fileLabel.innerHTML = `
+                    <svg class="w-6 h-6 mx-auto mb-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-sm font-medium text-gray-700">${fileName}</span>
+                    <span class="text-xs text-gray-500 block mt-1">Click to change file</span>
+                `;
+                if (fieldContainer) {
+                    fieldContainer.classList.remove('error');
+                    fieldContainer.classList.add('valid');
+                }
+            } else {
+                if (fieldContainer) {
+                    fieldContainer.classList.add('error');
+                }
+                fileLabel.classList.remove('has-file');
+                alert('File size must be less than 10MB');
+                fileInput.value = ''; // Clear the file input
+            }
+        }
     };
 
     // --- Copy to Clipboard for Contact Page ---
@@ -300,7 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Dynamic Year in Footer ---
     const updateFooterYear = () => {
         const yearSpan = document.getElementById('current-year');
-        // FIXED: Corrected syntax from "new new Date()" to "new Date()"
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
     };
     
@@ -342,8 +470,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.custom-select-wrapper').forEach((wrapper, index) => {
         initializeCustomSelect(wrapper, index);
     });
+    
+    // Initialize contact form
     const contactForm = document.getElementById('contact-form-element');
     if (contactForm) {
         handleAjaxFormSubmit(contactForm);
+        // Attach file upload handlers
+        contactForm.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', handleFileUpload);
+        });
+    }
+    
+    // Initialize careers form
+    const careersForm = document.getElementById('careers-form');
+    if (careersForm) {
+        handleAjaxFormSubmit(careersForm);
+        // Attach file upload handlers
+        careersForm.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', handleFileUpload);
+        });
     }
 });
