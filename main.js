@@ -144,7 +144,217 @@ document.addEventListener('DOMContentLoaded', () => {
         handleScroll();
     };
 
-     // --- Component Loader (Loads Header & Footer) ---
+    // --- Enhanced Footer Animations ---
+    const initializeFooterEnhancements = () => {
+        // Intersection Observer for footer animations
+        const footerElements = document.querySelectorAll('.footer-link, .footer-contact-item, .social-icon-link, .business-hours');
+        
+        if (footerElements.length > 0) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Add staggered animation
+                        setTimeout(() => {
+                            entry.target.style.opacity = '0';
+                            entry.target.style.transform = 'translateY(20px)';
+                            
+                            requestAnimationFrame(() => {
+                                entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            });
+                        }, index * 50);
+                        
+                        footerObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            footerElements.forEach(element => {
+                element.style.opacity = '0';
+                footerObserver.observe(element);
+            });
+        }
+        
+        // Enhanced tooltip for contact items
+        const addTooltips = () => {
+            const contactItems = document.querySelectorAll('.footer-contact-item a');
+            
+            contactItems.forEach(item => {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'footer-tooltip';
+                tooltip.style.cssText = `
+                    position: absolute;
+                    background: rgba(30, 64, 175, 0.95);
+                    color: white;
+                    padding: 6px 12px;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    white-space: nowrap;
+                    pointer-events: none;
+                    opacity: 0;
+                    transform: translateY(5px);
+                    transition: opacity 0.3s, transform 0.3s;
+                    z-index: 1000;
+                    display: none;
+                `;
+                
+                let tooltipText = '';
+                if (item.href.includes('tel:')) {
+                    tooltipText = 'Click to call';
+                } else if (item.href.includes('mailto:')) {
+                    tooltipText = 'Click to email';
+                } else if (item.href.includes('maps')) {
+                    tooltipText = 'View on Google Maps';
+                }
+                
+                if (tooltipText) {
+                    tooltip.textContent = tooltipText;
+                    document.body.appendChild(tooltip);
+                    
+                    item.addEventListener('mouseenter', (e) => {
+                        const rect = e.target.getBoundingClientRect();
+                        tooltip.style.left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2) + 'px';
+                        tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
+                        tooltip.style.display = 'block';
+                        
+                        requestAnimationFrame(() => {
+                            tooltip.style.opacity = '1';
+                            tooltip.style.transform = 'translateY(0)';
+                        });
+                    });
+                    
+                    item.addEventListener('mouseleave', () => {
+                        tooltip.style.opacity = '0';
+                        tooltip.style.transform = 'translateY(5px)';
+                        setTimeout(() => {
+                            tooltip.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            });
+        };
+        
+        // Parallax effect for footer background blobs
+        const initParallax = () => {
+            const blobs = document.querySelectorAll('.animate-blob');
+            
+            if (blobs.length > 0) {
+                let ticking = false;
+                
+                const updateParallax = () => {
+                    const scrolled = window.pageYOffset;
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.body.scrollHeight;
+                    const scrollPercentage = scrolled / (documentHeight - windowHeight);
+                    
+                    blobs.forEach((blob, index) => {
+                        const speed = 0.5 + (index * 0.2);
+                        const yPos = -(scrollPercentage * 100 * speed);
+                        blob.style.transform = `translateY(${yPos}px) scale(${1 + scrollPercentage * 0.1})`;
+                    });
+                    
+                    ticking = false;
+                };
+                
+                const requestTick = () => {
+                    if (!ticking) {
+                        requestAnimationFrame(updateParallax);
+                        ticking = true;
+                    }
+                };
+                
+                window.addEventListener('scroll', requestTick);
+            }
+        };
+        
+        // Animated counter for business hours
+        const animateBusinessHours = () => {
+            const businessHours = document.querySelector('.business-hours');
+            
+            if (businessHours) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            businessHours.classList.add('hours-visible');
+                            observer.unobserve(businessHours);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(businessHours);
+            }
+        };
+        
+        // Social icons hover effect enhancement
+        const enhanceSocialIcons = () => {
+            const socialIcons = document.querySelectorAll('.social-icon-link');
+            
+            socialIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.className = 'social-ripple';
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+                        transform: scale(0);
+                        animation: rippleEffect 0.6s ease-out;
+                        pointer-events: none;
+                        border-radius: 12px;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        };
+        
+        // Initialize all footer enhancements
+        addTooltips();
+        initParallax();
+        animateBusinessHours();
+        enhanceSocialIcons();
+    };
+
+    // Add ripple animation keyframe dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes rippleEffect {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hours-visible {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // --- Component Loader (Loads Header & Footer) ---
     const loadComponent = (componentPath, elementId) => {
         const pathPrefix = document.body.hasAttribute('data-path-prefix') ? document.body.getAttribute('data-path-prefix') : '';
         fetch(`${pathPrefix}${componentPath}`)
@@ -167,7 +377,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     initializeMobileMenu();
                     initializeEnhancedHeader(); // Initialize enhanced header after loading
                 }
-                if (elementId === 'main-footer') updateFooterYear();
+                if (elementId === 'main-footer') {
+                    updateFooterYear();
+                    initializeFooterEnhancements(); // Initialize footer enhancements
+                }
             })
             .catch(error => console.error('Error loading component:', error));
     };
@@ -554,13 +767,93 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const articlesGrid = document.getElementById('articles-grid');
     if (searchInput && articlesGrid) {
-        // ... Logic for insights page remains unchanged
+        const articles = articlesGrid.querySelectorAll('.article-card');
+        
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            articles.forEach(article => {
+                const title = article.querySelector('h3').textContent.toLowerCase();
+                const excerpt = article.querySelector('p').textContent.toLowerCase();
+                const category = article.querySelector('.category-badge').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || category.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('active', 'bg-primary', 'text-white'));
+                button.classList.add('active', 'bg-primary', 'text-white');
+                
+                // Filter articles
+                articles.forEach(article => {
+                    if (filter === 'all') {
+                        article.style.display = 'block';
+                    } else {
+                        const category = article.querySelector('.category-badge').textContent.toLowerCase();
+                        if (category === filter) {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
     }
     
     // --- Social Sharing on Article Pages ---
     const shareContainer = document.getElementById('social-share');
     if(shareContainer){
-        // ... Logic for social sharing remains unchanged
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.querySelector('h1')?.textContent || document.title);
+        
+        // LinkedIn Share
+        const linkedinBtn = shareContainer.querySelector('.linkedin-share');
+        if(linkedinBtn) {
+            linkedinBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+        }
+        
+        // Twitter Share
+        const twitterBtn = shareContainer.querySelector('.twitter-share');
+        if(twitterBtn) {
+            twitterBtn.href = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        }
+        
+        // Facebook Share
+        const facebookBtn = shareContainer.querySelector('.facebook-share');
+        if(facebookBtn) {
+            facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        }
+        
+        // Copy Link
+        const copyLinkBtn = shareContainer.querySelector('.copy-link');
+        if(copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const originalText = copyLinkBtn.innerHTML;
+                    copyLinkBtn.innerHTML = `
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span>Copied!</span>
+                    `;
+                    setTimeout(() => {
+                        copyLinkBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            });
+        }
     }
 
     // --- Load Reusable Components ---
