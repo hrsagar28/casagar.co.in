@@ -1,16 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile Menu Handler ---
+    // --- Enhanced Mobile Menu Handler ---
     const initializeMobileMenu = () => {
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuPanel = document.getElementById('mobile-menu-panel');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        if (!mobileMenuBtn || !mobileMenu) return;
+        if (!mobileMenuBtn || !mobileMenu || !mobileMenuPanel) return;
 
         const toggleMenu = (open) => {
-            document.body.classList.toggle('mobile-menu-open', open);
+            if (open) {
+                document.body.classList.add('mobile-menu-open');
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100');
+                mobileMenuPanel.classList.remove('translate-x-full');
+                mobileMenuPanel.classList.add('translate-x-0');
+            } else {
+                document.body.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100');
+                mobileMenuPanel.classList.add('translate-x-full');
+                mobileMenuPanel.classList.remove('translate-x-0');
+            }
         };
 
         mobileMenuBtn.addEventListener('click', (e) => {
@@ -22,22 +35,113 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuClose.addEventListener('click', () => toggleMenu(false));
         }
 
+        // Close when clicking outside panel
         mobileMenu.addEventListener('click', (e) => {
-            if (e.target.id === 'mobile-menu') toggleMenu(false);
+            if (e.target === mobileMenu) toggleMenu(false);
         });
 
+        // Close with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
                 toggleMenu(false);
             }
         });
 
+        // Close when clicking nav links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        });
+
+        // Touch gesture support
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!touchStartX || !touchStartY) return;
+            
+            const touchEndX = e.touches[0].clientX;
+            const touchEndY = e.touches[0].clientY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+            
+            // Only trigger if horizontal swipe is dominant
+            if (Math.abs(diffX) > diffY && Math.abs(diffX) > 50) {
+                // Swipe left from right edge to open menu
+                if (diffX < -50 && touchStartX > window.innerWidth - 50 && !document.body.classList.contains('mobile-menu-open')) {
+                    toggleMenu(true);
+                }
+                
+                // Swipe right to close menu
+                if (diffX > 50 && document.body.classList.contains('mobile-menu-open')) {
+                    toggleMenu(false);
+                }
+            }
+        });
+
+        // Set active state for mobile nav
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         mobileNavLinks.forEach(link => {
             if (link.getAttribute('href') === currentPage) {
-                link.classList.add('bg-blue-50', 'text-primary', 'font-semibold');
+                link.classList.add('bg-blue-50', 'text-blue-600', 'font-semibold');
             }
         });
+    };
+
+    // --- Enhanced Header Scroll Behavior ---
+    const initializeEnhancedHeader = () => {
+        const header = document.getElementById('main-header');
+        if (!header) return;
+
+        let lastScrollY = window.scrollY;
+        let isScrolling = false;
+
+        const handleScroll = () => {
+            if (isScrolling) return;
+            
+            isScrolling = true;
+            requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+                const scrollDifference = currentScrollY - lastScrollY;
+                
+                // Add scrolled class for styling changes
+                if (currentScrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Hide/show header based on scroll direction (only after 100px)
+                if (currentScrollY > 100) {
+                    if (scrollDifference > 8) {
+                        header.classList.add('hidden');
+                    } else if (scrollDifference < -8) {
+                        header.classList.remove('hidden');
+                    }
+                } else {
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollY = currentScrollY;
+                isScrolling = false;
+            });
+        };
+
+        // Throttled scroll event
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 16); // ~60fps
+        });
+
+        // Initialize scroll state
+        handleScroll();
     };
 
      // --- Component Loader (Loads Header & Footer) ---
@@ -61,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (elementId === 'main-header' || elementId === 'mobile-menu-placeholder') {
                     initializeNav();
                     initializeMobileMenu();
+                    initializeEnhancedHeader(); // Initialize enhanced header after loading
                 }
                 if (elementId === 'main-footer') updateFooterYear();
             })
@@ -72,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('#nav-links a');
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         navLinks.forEach(link => {
-            const isContactButton = link.classList.contains('bg-blue-600');
+            const isContactButton = link.classList.contains('bg-blue-600') || link.classList.contains('contact-btn');
             if (link.getAttribute('href').split('/').pop() === currentPage && !isContactButton) {
                 link.classList.add('nav-active');
             }
@@ -490,4 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
             input.addEventListener('change', handleFileUpload);
         });
     }
+
+    // Initialize enhanced header (will be called after header loads)
+    // This is handled in the loadComponent callback for main-header
 });
