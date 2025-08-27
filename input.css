@@ -585,89 +585,345 @@
     }
 }
 
-/* ===== Simple Footer Enhancements ===== */
-/* Add this to your input.css file */
+/* ===== ENHANCED FOOTER STYLES ===== */
 
-/* Smooth hover transitions for footer links */
-footer a {
-    transition: all 0.3s ease;
-}
-
-/* Hover effect for footer link bullets */
-footer .group:hover span {
-    width: 8px !important;
-}
-
-/* Social icon hover effects */
-footer a[aria-label]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
-}
-
-/* Business hours card hover */
-footer .business-hours:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* Contact item hover effects */
-footer .group:hover > div:first-child {
-    background: rgba(96, 165, 250, 0.2) !important;
-    border-color: rgba(96, 165, 250, 0.4) !important;
-}
-
-/* Make sure text is readable */
-footer p,
-footer span,
-footer a {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    footer .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-}
-
-/* ===== START: NEW FOOTER ENHANCEMENT STYLES ===== */
-
-/* 1. Makes the footer stick to the bottom of the page */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-main {
-    flex-grow: 1; /* Allows main content to fill empty space */
-}
-
-/* 2. New, darker gradient specifically for the footer */
+/* 1. Improved footer background with better contrast */
 .footer-background-dark {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 70%, #0f172a 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
+    color: #f8fafc; /* Better base text color */
 }
 
-/* 3. Subtle glow effect for the CA logo */
+/* 2. Enhanced logo with background for better visibility */
+.footer-logo-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-logo-container:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
 .footer-logo-image {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
-}
-
-/* 4. Adds a light-blue bullet point to the Quick Links */
-.footer-link::before {
-    content: '•';
-    color: #60a5fa; /* A light, complementary blue */
-    margin-right: 12px;
-    font-size: 1.25rem;
-    line-height: 1;
+    filter: none; /* Remove the glow effect since we now have a background */
     transition: transform 0.3s ease;
 }
 
-.footer-link:hover::before {
-    transform: translateX(-4px); /* Adds a nice micro-interaction on hover */
+.footer-logo-image:hover {
+    transform: scale(1.05);
 }
 
-/* ===== END: NEW FOOTER ENHANCEMENT STYLES ===== */
+/* 3. Enhanced Quick Links with better micro-interactions */
+.footer-link-enhanced {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #d1d5db; /* Improved contrast - gray-300 */
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.375rem 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-link-enhanced::before {
+    content: '•';
+    color: #60a5fa; /* Light blue bullet */
+    margin-right: 12px;
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.footer-link-enhanced::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 24px; /* Account for bullet point */
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    transition: width 0.3s ease;
+}
+
+.footer-link-enhanced:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.footer-link-enhanced:hover::before {
+    color: #3b82f6;
+    transform: translateX(-2px) scale(1.2);
+}
+
+.footer-link-enhanced:hover::after {
+    width: calc(100% - 24px);
+}
+
+/* 4. Enhanced Contact Items with consistent styling */
+.footer-contact-item-enhanced {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-contact-item-enhanced:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. Enhanced Icon Wrapper with consistent styling */
+.footer-icon-wrapper-enhanced {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.footer-contact-item-enhanced:hover .footer-icon-wrapper-enhanced {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: rotate(3deg) scale(1.05);
+}
+
+/* 6. Enhanced Social Media Icons with higher contrast */
+.social-icon-link-enhanced {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    color: #cbd5e1; /* Improved contrast - gray-300 */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.social-icon-link-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.social-icon-link-enhanced:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(59, 130, 246, 0.3);
+}
+
+.social-icon-link-enhanced:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+.social-icon-link-enhanced:hover svg {
+    transform: scale(1.15);
+}
+
+.social-icon-link-enhanced svg {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* 7. Enhanced Footer Headings */
+.footer-heading {
+    position: relative;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 1px;
+}
+
+/* 8. Enhanced Legal Links in Footer */
+.footer-legal-link {
+    color: #9ca3af; /* Better contrast than original gray-400 */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.25rem 0;
+}
+
+.footer-legal-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.footer-legal-link:hover {
+    color: #ffffff;
+}
+
+.footer-legal-link:hover::after {
+    width: 100%;
+}
+
+/* 9. Improved Typography Contrast */
+.footer-background-dark p,
+.footer-background-dark span {
+    color: #e2e8f0; /* Better contrast than original gray-300 */
+}
+
+.footer-background-dark .text-gray-400 {
+    color: #94a3af !important; /* Improved contrast for closed status */
+}
+
+.footer-background-dark .text-gray-300 {
+    color: #cbd5e1 !important; /* Better contrast for labels */
+}
+
+.footer-background-dark .text-gray-200 {
+    color: #e2e8f0 !important; /* Better contrast for values */
+}
+
+/* 10. Enhanced Accessibility */
+.footer-link-enhanced:focus,
+.footer-contact-item-enhanced:focus,
+.social-icon-link-enhanced:focus,
+.footer-legal-link:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* 11. Improved Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-contact-item-enhanced {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-icon-wrapper-enhanced {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .social-icon-link-enhanced {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .footer-link-enhanced {
+        font-size: 0.875rem;
+        padding: 0.5rem 0;
+    }
+    
+    /* Better mobile spacing for Quick Links */
+    .footer-link-enhanced + .footer-link-enhanced {
+        margin-top: 0.25rem;
+    }
+}
+
+/* 12. Enhanced Animation for Better Visual Balance */
+.animate-blob {
+    animation: blob 8s infinite ease-in-out;
+}
+
+@keyframes blob {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    25% {
+        transform: translate(20px, -30px) scale(1.05);
+    }
+    50% {
+        transform: translate(-15px, 15px) scale(0.95);
+    }
+    75% {
+        transform: translate(25px, 10px) scale(1.02);
+    }
+}
+
+/* 13. Improved Border Contrast */
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 14. High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .footer-background-dark {
+        background: #000000;
+        border-top: 3px solid #ffffff;
+    }
+    
+    .footer-link-enhanced,
+    .footer-legal-link {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    
+    .social-icon-link-enhanced,
+    .footer-contact-item-enhanced {
+        border-width: 2px;
+        border-color: #ffffff;
+    }
+}
+
+/* 15. Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .animate-blob,
+    .footer-link-enhanced,
+    .footer-contact-item-enhanced,
+    .social-icon-link-enhanced,
+    .footer-legal-link {
+        animation: none;
+        transition: none;
+    }
+    
+    .footer-link-enhanced:hover,
+    .footer-contact-item-enhanced:hover,
+    .social-icon-link-enhanced:hover {
+        transform: none;
+    }
+}
 
 body {
     display: flex;
