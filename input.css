@@ -309,34 +309,6 @@
     animation: shimmer 3s infinite linear;
 }
 
-/* Animated Background Blobs */
-@keyframes blob {
-    0% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-    100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-}
-
-.animate-blob {
-    animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
-
 /* Shimmer Animation */
 @keyframes shimmer {
     0% {
@@ -587,20 +559,21 @@
 
 /* ===== ENHANCED FOOTER STYLES ===== */
 
-/* 1. Improved footer background with better contrast */
+/* 1. Improved footer background with blue hues only */
 .footer-background-dark {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
-    color: #f8fafc; /* Better base text color */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #f8fafc;
 }
 
-/* 2. Enhanced logo with background for better visibility */
+/* 2. Enhanced logo with background for better visibility - smaller size */
 .footer-logo-container {
     background: rgba(255, 255, 255, 0.95);
-    padding: 8px;
-    border-radius: 8px;
-    border: 2px solid rgba(59, 130, 246, 0.2);
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     transition: all 0.3s ease;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .footer-logo-container:hover {
@@ -619,51 +592,56 @@
     transform: scale(1.05);
 }
 
-/* 3. Enhanced Quick Links with better micro-interactions */
-.footer-link-enhanced {
+/* 3. Compact Quick Links for better layout */
+.footer-link-compact {
     position: relative;
     display: inline-flex;
     align-items: center;
-    color: #d1d5db; /* Improved contrast - gray-300 */
+    color: #cbd5e1; /* gray-300 */
     text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.375rem 0;
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.375rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.footer-link-enhanced::before {
-    content: '•';
-    color: #60a5fa; /* Light blue bullet */
-    margin-right: 12px;
-    font-size: 1.25rem;
-    line-height: 1;
-    transition: all 0.3s ease;
-}
-
-.footer-link-enhanced::after {
+.footer-link-compact::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 24px; /* Account for bullet point */
+    bottom: 1px;
+    left: 0.5rem;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: linear-gradient(90deg, #3b82f6, #60a5fa);
     transition: width 0.3s ease;
 }
 
-.footer-link-enhanced:hover {
+.footer-link-compact:hover {
     color: #ffffff;
-    transform: translateX(4px);
+    background: rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
 }
 
-.footer-link-enhanced:hover::before {
-    color: #3b82f6;
-    transform: translateX(-2px) scale(1.2);
+.footer-link-compact:hover::before {
+    width: calc(100% - 1rem);
 }
 
-.footer-link-enhanced:hover::after {
-    width: calc(100% - 24px);
+.footer-link-compact:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.footer-link-compact:active {
+    transform: translateY(0);
 }
 
 /* 4. Enhanced Contact Items with consistent styling */
@@ -785,6 +763,13 @@
     transition: all 0.3s ease;
     position: relative;
     padding: 0.25rem 0;
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .footer-legal-link::after {
@@ -806,6 +791,12 @@
     width: 100%;
 }
 
+.footer-legal-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 /* 9. Improved Typography Contrast */
 .footer-background-dark p,
 .footer-background-dark span {
@@ -825,13 +816,55 @@
 }
 
 /* 10. Enhanced Accessibility */
-.footer-link-enhanced:focus,
-.footer-contact-item-enhanced:focus,
-.social-icon-link-enhanced:focus,
-.footer-legal-link:focus {
-    outline: 2px solid #60a5fa;
-    outline-offset: 2px;
-    border-radius: 4px;
+.footer-contact-item-enhanced {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.footer-contact-item-enhanced:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.footer-contact-item-enhanced:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(60, 130, 246, 0.5) !important;
+    border-color: rgba(59, 130, 246, 0.5) !important;
+}
+
+.footer-icon-wrapper-enhanced {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.footer-contact-item-enhanced:hover .footer-icon-wrapper-enhanced {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: rotate(3deg) scale(1.05);
 }
 
 /* 11. Improved Mobile Responsiveness */
@@ -859,26 +892,6 @@
     /* Better mobile spacing for Quick Links */
     .footer-link-enhanced + .footer-link-enhanced {
         margin-top: 0.25rem;
-    }
-}
-
-/* 12. Enhanced Animation for Better Visual Balance */
-.animate-blob {
-    animation: blob 8s infinite ease-in-out;
-}
-
-@keyframes blob {
-    0%, 100% {
-        transform: translate(0px, 0px) scale(1);
-    }
-    25% {
-        transform: translate(20px, -30px) scale(1.05);
-    }
-    50% {
-        transform: translate(-15px, 15px) scale(0.95);
-    }
-    75% {
-        transform: translate(25px, 10px) scale(1.02);
     }
 }
 
@@ -924,6 +937,92 @@
         transform: none;
     }
 }
+
+/* 5. Single Social Media Link - More Prominent */
+.social-icon-link-single {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.15);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 0.75rem;
+    color: #cbd5e1;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.social-icon-link-single::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.social-icon-link-single:hover {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.social-icon-link-single:hover::before {
+    width: 120px;
+    height: 120px;
+}
+
+.social-icon-link-single:hover svg {
+    transform: scale(1.1);
+}
+
+.social-icon-link-single svg {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon-link-single:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5) !important;
+    border: 2px solid rgba(59, 130, 246, 0.5) !important;
+}
+
+/* 4. Small footer heading */
+.footer-heading-small {
+    position: relative;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+}
+
+.footer-heading-small::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 30px;
+    height: 1.5px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 1px;
+}
+
 
 body {
     display: flex;

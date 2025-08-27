@@ -1,49 +1,46 @@
 <footer class="footer-background-dark relative overflow-hidden">
     
-    <!-- Enhanced animated background blobs with better contrast -->
-    <div class="absolute top-0 left-0 w-full h-full pointer-events-none" aria-hidden="true">
-        <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob"></div>
-        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
-    </div>
-
     <div class="container mx-auto px-6 py-16 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             
-            <!-- Logo section with improved styling -->
-            <div class="md:col-span-1 logo-footer-section">
-                <div class="flex items-center space-x-3 mb-6">
+            <!-- Company Info Section -->
+            <div class="lg:col-span-1">
+                <div class="flex items-start space-x-4 mb-6">
                     <div class="footer-logo-container">
-                        <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-12 w-auto footer-logo-image">
+                        <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-10 w-auto footer-logo-image">
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold text-white">Sagar H R & Co.</h3>
-                        <p class="text-xs text-gray-300 uppercase tracking-wider">Chartered Accountants</p>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white mb-1">Sagar H R & Co.</h3>
+                        <p class="text-xs text-gray-300 uppercase tracking-wider mb-3">Chartered Accountants</p>
+                        <p class="text-gray-200 text-sm leading-relaxed">
+                            Your trusted partner in financial excellence. Expert accounting, tax, and advisory services.
+                        </p>
                     </div>
                 </div>
-                <p class="text-gray-200 text-sm leading-relaxed" style="text-align: justify;">
-                    Your trusted partner in financial excellence. We provide expert accounting, tax, and advisory services to help you navigate complexity and achieve your goals with integrity and precision.
-                </p>
+                
+                <!-- Quick Links integrated here -->
+                <div class="mt-8">
+                    <h4 class="text-sm font-semibold text-white mb-4 footer-heading-small">Quick Links</h4>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="index.html" class="footer-link-compact">Home</a>
+                        <a href="about.html" class="footer-link-compact">About Us</a>
+                        <a href="contact.html" class="footer-link-compact">Contact</a>
+                        <a href="services.html" class="footer-link-compact">Services</a>
+                        <a href="resources.html" class="footer-link-compact">Resources</a>
+                        <a href="insights.html" class="footer-link-compact">Insights</a>
+                        <a href="faq.html" class="footer-link-compact">FAQ</a>
+                        <a href="careers.html" class="footer-link-compact">Careers</a>
+
+                    </div>
+                </div>
             </div>
             
-            <!-- Quick Links with improved hierarchy and spacing -->
-            <div class="md:col-span-1">
-                <h3 class="text-lg font-bold text-white mb-6 footer-heading">Quick Links</h3>
-                <ul class="space-y-4">
-                    <li><a href="about.html" class="footer-link-enhanced">About Us</a></li>
-                    <li><a href="services.html" class="footer-link-enhanced">Services</a></li>
-                    <li><a href="insights.html" class="footer-link-enhanced">Insights</a></li>
-                    <li><a href="contact.html" class="footer-link-enhanced">Contact</a></li>
-                    <li><a href="resources.html" class="footer-link-enhanced">Resources</a></li>
-                    <li><a href="faq.html" class="footer-link-enhanced">FAQ</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact section with consistent styling -->
-            <div class="md:col-span-2">
+            <!-- Contact Information Section -->
+            <div class="lg:col-span-2">
                 <h3 class="text-lg font-bold text-white mb-6 footer-heading">Get in Touch</h3>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                    <!-- Office Address -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <!-- Office Address - Shortened -->
                     <a href="https://maps.google.com/?q=12.3004167,76.6517778" target="_blank" rel="noopener noreferrer" class="footer-contact-item-enhanced">
                         <div class="footer-icon-wrapper-enhanced">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,7 +50,7 @@
                         </div>
                         <div class="ml-4">
                             <p class="font-semibold text-white text-sm">Office Address</p>
-                            <p class="text-gray-200 text-sm mt-1">1479, 2nd Floor, Thyagaraja Road,<br>KR Mohalla, Mysuru,<br>Karnataka - 570004</p>
+                            <p class="text-gray-200 text-sm mt-1">1479, 2nd Floor, Thyagaraja Road<br>KR Mohalla, Mysuru - 570004</p>
                         </div>
                     </a>
                     
@@ -110,14 +107,15 @@
                     </div>
                 </div>
                 
-                <!-- Social Media with enhanced visibility -->
-                <div>
-                    <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/sagar-h-r-507495261" target="_blank" rel="noopener noreferrer" class="social-icon-link-enhanced" aria-label="Connect on LinkedIn">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Social Media - Centered and prominent -->
+                <div class="text-center">
+                    <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-6">Connect With Us</h4>
+                    <div class="inline-flex justify-center">
+                        <a href="https://www.linkedin.com/in/sagar-h-r-507495261" target="_blank" rel="noopener noreferrer" class="social-icon-link-single" aria-label="Connect on LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
+                            <span class="ml-2 font-medium">LinkedIn</span>
                         </a>
                     </div>
                 </div>
