@@ -1,127 +1,158 @@
-      <div class="container mx-auto px-6 py-16 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            
-            <!-- Company Info Section -->
-            <div class="lg:col-span-1">
-                <div class="flex items-start space-x-4 mb-6">
-                    <div class="footer-logo-container">
-                        <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-10 w-auto footer-logo-image">
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold text-white mb-1">Sagar H R & Co.</h3>
-                        <p class="text-xs text-gray-300 uppercase tracking-wider mb-3">Chartered Accountants</p>
-                        <p class="text-gray-200 text-sm leading-relaxed">
-                            Your trusted partner in financial excellence. Expert accounting, tax, and advisory services.
-                        </p>
-                    </div>
+<!-- Fixed Footer using only existing Tailwind classes -->
+<footer class="footer-background-dark relative overflow-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-blue-600 rounded-full blur transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-72 h-72 bg-primary rounded-full blur transform translate-x-1/2 translate-y-1/2"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 py-16 relative z-10">
+        <!-- Top Section with Logo and Description -->
+        <div class="text-center mb-12 pb-12 border-b border-white/20">
+            <div class="inline-flex items-center space-x-4 mb-6">
+                <div class="footer-logo-container">
+                    <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-12 w-auto footer-logo-image">
                 </div>
-                
-                <!-- Quick Links integrated here -->
-                <div class="mt-8">
-                    <h4 class="text-sm font-semibold text-white mb-4 footer-heading-small">Quick Links</h4>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="index.html" class="footer-link-compact">Home</a>
-                        <a href="about.html" class="footer-link-compact">About Us</a>
-                        <a href="contact.html" class="footer-link-compact">Contact</a>
-                        <a href="services.html" class="footer-link-compact">Services</a>
-                        <a href="resources.html" class="footer-link-compact">Resources</a>
-                        <a href="insights.html" class="footer-link-compact">Insights</a>
-                        <a href="faq.html" class="footer-link-compact">FAQ</a>
-                        <a href="careers.html" class="footer-link-compact">Careers</a>
-
-                    </div>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-white">Sagar H R & Co.</h3>
+                    <p class="text-sm text-blue-100 uppercase tracking-wider">Chartered Accountants</p>
                 </div>
             </div>
-            
-            <!-- Contact Information Section -->
-            <div class="lg:col-span-2">
-                <h3 class="text-lg font-bold text-white mb-6 footer-heading">Get in Touch</h3>
+            <p class="text-gray-300 max-w-2xl mx-auto">
+                Your trusted partner in financial excellence. Expert accounting, tax, and advisory services.
+            </p>
+        </div>
+        
+        <!-- Main Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <!-- Contact Information Column -->
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold text-blue-100 uppercase tracking-wider mb-4 footer-heading-small">Contact Us</h4>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <!-- Office Address - Shortened -->
-                    <a href="https://maps.google.com/?q=12.3004167,76.6517778" target="_blank" rel="noopener noreferrer" class="footer-contact-item-enhanced">
-                        <div class="footer-icon-wrapper-enhanced">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-white text-sm">Office Address</p>
-                            <p class="text-gray-200 text-sm mt-1">1479, 2nd Floor, Thyagaraja Road<br>KR Mohalla, Mysuru - 570004</p>
-                        </div>
-                    </a>
-                    
-                    <!-- Email -->
-                    <a href="mailto:mail@casagar.co.in" class="footer-contact-item-enhanced">
-                        <div class="footer-icon-wrapper-enhanced">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-white text-sm">Email Us</p>
-                            <p class="text-gray-200 text-sm mt-1">mail@casagar.co.in</p>
-                        </div>
-                    </a>
-                    
-                    <!-- Phone -->
-                    <a href="tel:+919482359455" class="footer-contact-item-enhanced">
-                        <div class="footer-icon-wrapper-enhanced">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-white text-sm">Call Us</p>
-                            <p class="text-gray-200 text-sm mt-1">+91 94823 59455</p>
-                        </div>
-                    </a>
-                    
-                    <!-- Business Hours with consistent styling -->
-                    <div class="footer-contact-item-enhanced cursor-default">
-                        <div class="footer-icon-wrapper-enhanced">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div class="ml-4 flex-1">
-                            <p class="font-semibold text-white text-sm mb-2">Business Hours</p>
-                            <div class="space-y-1 text-xs">
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Mon - Sat</span>
-                                    <span class="text-gray-200">10:00 AM - 2:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300"></span>
-                                    <span class="text-gray-200">4:00 PM - 8:00 PM</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-300">Sunday</span>
-                                    <span class="text-gray-400">Closed</span>
-                                </div>
+                <a href="tel:+919482359455" class="footer-contact-item-enhanced group">
+                    <div class="footer-icon-wrapper-enhanced bg-green-100 bg-opacity-50">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs text-gray-400 mb-1">Call Us</p>
+                        <p class="text-white font-medium">+91 94823 59455</p>
+                    </div>
+                </a>
+                
+                <a href="mailto:mail@casagar.co.in" class="footer-contact-item-enhanced group">
+                    <div class="footer-icon-wrapper-enhanced bg-blue-100 bg-opacity-50">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs text-gray-400 mb-1">Email</p>
+                        <p class="text-white font-medium text-sm break-all">mail@casagar.co.in</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Office Location Column -->
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold text-blue-100 uppercase tracking-wider mb-4 footer-heading-small">Office Location</h4>
+                
+                <a href="https://maps.google.com/?q=12.3004167,76.6517778" target="_blank" rel="noopener noreferrer" class="footer-contact-item-enhanced group">
+                    <div class="footer-icon-wrapper-enhanced bg-red-100 bg-opacity-50">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xs text-gray-400 mb-1">Visit Us</p>
+                        <p class="text-white text-sm leading-relaxed">
+                            1479, 2nd Floor, Thyagaraja Road<br>
+                            KR Mohalla, Mysuru - 570004
+                        </p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Business Hours Column -->
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold text-blue-100 uppercase tracking-wider mb-4 footer-heading-small">Business Hours</h4>
+                
+                <div class="footer-contact-item-enhanced cursor-default">
+                    <div class="footer-icon-wrapper-enhanced bg-purple-100 bg-opacity-50">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Mon - Sat</span>
+                                <span class="text-green-500 font-medium">Open</span>
+                            </div>
+                            <div class="pl-0 space-y-1">
+                                <div class="text-gray-300 text-xs">10:00 AM - 2:00 PM</div>
+                                <div class="text-gray-300 text-xs">4:00 PM - 8:00 PM</div>
+                            </div>
+                            <div class="flex justify-between items-center pt-2 border-t border-white/20">
+                                <span class="text-gray-400">Sunday</span>
+                                <span class="text-red-500">Closed</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Quick Links Column -->
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold text-blue-100 uppercase tracking-wider mb-4 footer-heading-small">Quick Links</h4>
                 
-                <!-- Social Media - Centered and prominent -->
-                <div class="text-center">
-                    <h4 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-6">Connect With Us</h4>
-                    <div class="inline-flex justify-center">
-                        <a href="https://www.linkedin.com/in/sagar-h-r-507495261" target="_blank" rel="noopener noreferrer" class="social-icon-link-single" aria-label="Connect on LinkedIn">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            <span class="ml-2 font-medium">LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
+                <nav class="grid grid-cols-2 gap-2">
+                    <a href="index.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Home
+                    </a>
+                    <a href="about.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> About
+                    </a>
+                    <a href="services.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Services
+                    </a>
+                    <a href="contact.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Contact
+                    </a>
+                    <a href="resources.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Resources
+                    </a>
+                    <a href="insights.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Insights
+                    </a>
+                    <a href="faq.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> FAQ
+                    </a>
+                    <a href="careers.html" class="footer-link-compact group">
+                        <span class="text-primary mr-1">→</span> Careers
+                    </a>
+                </nav>
             </div>
         </div>
         
-        <!-- Bottom section with improved contrast and hierarchy -->
-        <div class="border-t border-white/20 mt-12 pt-8">
+        <!-- Social Media Section -->
+        <div class="text-center py-8 border-t border-b border-white/20">
+            <h4 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-6">Connect With Us</h4>
+            <a href="https://www.linkedin.com/in/sagar-h-r-507495261" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="inline-flex items-center space-x-3 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border-2 border-white/20 hover:bg-white/20 hover:border-white/20 transition-all duration-300 group social-icon-link-single">
+                <svg class="w-6 h-6 text-blue-100" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                <span class="text-white font-medium">Follow on LinkedIn</span>
+            </a>
+        </div>
+        
+        <!-- Bottom Section -->
+        <div class="pt-8">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <div class="text-center md:text-left">
                     <p class="text-gray-200 text-sm font-medium">
@@ -140,3 +171,4 @@
             </div>
         </div>
     </div>
+</footer>
