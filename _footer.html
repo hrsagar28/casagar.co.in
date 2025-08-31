@@ -1,179 +1,161 @@
-<!-- Redesigned Footer with Better Symmetry and Space Management -->
 <footer class="footer-background-dark relative overflow-hidden">
-    <!-- Subtle Background Decoration -->
     <div class="absolute inset-0 opacity-5 pointer-events-none">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-700 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-700 rounded-full blur-3xl"></div>
     </div>
     
-    <div class="container mx-auto px-6 py-12 relative z-10">
-        <!-- Top Section - Company Info -->
-        <div class="flex flex-col lg:flex-row justify-between items-start mb-12 pb-12 border-b border-white/20">
-            <!-- Left: Logo and Description -->
-            <div class="flex items-start space-x-4 mb-8 lg:mb-0 lg:max-w-md">
-                <div class="footer-logo-container flex-shrink-0">
-                    <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-10 w-auto footer-logo-image">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="py-8 border-b border-white/10">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center space-x-3">
+                    <div class="footer-logo-container">
+                        <img src="assets/icai-logo.png" alt="ICAI CA Logo" class="h-10 w-auto">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Sagar H R & Co.</h3>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider">Chartered Accountants</p>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-1">Sagar H R & Co.</h3>
-                    <p class="text-xs text-gray-300 uppercase tracking-wider mb-3">Chartered Accountants</p>
-                    <p class="text-gray-200 text-sm leading-relaxed">
-                        Your trusted partner in financial excellence. Expert accounting, tax, and advisory services.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Right: Quick Links Grid (More Prominent) -->
-            <div class="lg:max-w-lg w-full lg:w-auto">
-                <h4 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Navigation</h4>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3">
-                    <a href="index.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Home
-                    </a>
-                    <a href="services.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Services
-                    </a>
-                    <a href="about.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>About
-                    </a>
-                    <a href="resources.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Resources
-                    </a>
-                    <a href="contact.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Contact
-                    </a>
-                    <a href="insights.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Insights
-                    </a>
-                    <a href="faq.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>FAQ
-                    </a>
-                    <a href="careers.html" class="footer-link-compact text-gray-300 hover:text-white transition-colors">
-                        <span class="text-primary mr-1 text-xs">▸</span>Careers
-                    </a>
-                </div>
+                
+                <p class="text-sm text-gray-300 text-center lg:text-right max-w-md">
+                    Your trusted partner in financial excellence. Expert accounting, tax, and advisory services.
+                </p>
             </div>
         </div>
         
-        <!-- Middle Section - Contact Information Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <!-- Contact Card -->
-            <div class="footer-contact-item-enhanced">
-                <div class="flex items-start space-x-3 mb-4">
-                    <div class="footer-icon-wrapper-enhanced flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Contact</p>
-                        <h5 class="text-white font-semibold text-sm">Get in Touch</h5>
-                    </div>
+        <div class="py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                <div class="lg:col-span-1">
+                    <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                    <nav class="grid grid-cols-2 gap-x-4 gap-y-2">
+                        <a href="index.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">About</a>
+                        <a href="services.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Services</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Contact</a>
+                        <a href="resources.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Resources</a>
+                        <a href="insights.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Insights</a>
+                        <a href="faq.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">FAQ</a>
+                        <a href="careers.html" class="text-gray-300 hover:text-white text-sm py-1 transition-colors">Careers</a>
+                    </nav>
                 </div>
-                <div class="space-y-3 pl-0">
-                    <a href="tel:+919482359455" class="flex items-center space-x-2 text-gray-200 hover:text-white transition-colors group">
-                        <span class="text-sm">📞</span>
-                        <span class="text-sm">+91 94823 59455</span>
-                    </a>
-                    <a href="mailto:mail@casagar.co.in" class="flex items-center space-x-2 text-gray-200 hover:text-white transition-colors group">
-                        <span class="text-sm">✉️</span>
-                        <span class="text-sm break-all">mail@casagar.co.in</span>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Office Location Card -->
-            <div class="footer-contact-item-enhanced">
-                <div class="flex items-start space-x-3 mb-4">
-                    <div class="footer-icon-wrapper-enhanced flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Location</p>
-                        <h5 class="text-white font-semibold text-sm">Office Address</h5>
-                    </div>
-                </div>
-                <a href="https://maps.google.com/?q=12.3004167,76.6517778" target="_blank" rel="noopener noreferrer" class="block pl-0 text-gray-200 hover:text-white transition-colors">
-                    <p class="text-sm leading-relaxed">
-                        1479, 2nd Floor<br>
-                        Thyagaraja Road<br>
-                        KR Mohalla<br>
-                        Mysuru - 570004
-                    </p>
-                    <p class="text-xs text-primary mt-2">View on Maps →</p>
-                </a>
-            </div>
-            
-            <!-- Business Hours Card -->
-            <div class="footer-contact-item-enhanced">
-                <div class="flex items-start space-x-3 mb-4">
-                    <div class="footer-icon-wrapper-enhanced flex-shrink-0">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Working Hours</p>
-                        <h5 class="text-white font-semibold text-sm">Business Hours</h5>
-                    </div>
-                </div>
-                <div class="space-y-3 pl-0 text-sm">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-gray-300 font-medium">Monday - Saturday</span>
-                            <span class="text-green-500 text-xs font-semibold">OPEN</span>
+                
+                <div class="lg:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/5 rounded-lg p-5 border border-white/10 hover:bg-white/10 transition-all">
+                            <div class="space-y-4">
+                                <div>
+                                    <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-2">Call Us</h5>
+                                    <a href="tel:+919482359455" class="flex items-center space-x-2 text-white hover:text-primary transition-colors">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                        </svg>
+                                        <span class="text-sm font-medium">+91 94823 59455</span>
+                                    </a>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-2">Email</h5>
+                                    <a href="mailto:mail@casagar.co.in" class="flex items-center space-x-2 text-white hover:text-primary transition-colors">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <span class="text-sm font-medium break-all">mail@casagar.co.in</span>
+                                    </a>
+                                </div>
+                                
+                                <div>
+                                    <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-2">Office</h5>
+                                    <div class="flex items-start space-x-2">
+                                        <svg class="w-4 h-4 flex-shrink-0 text-white mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <div>
+                                    <a href="https://maps.google.com/?q=12.3004167,76.6517778" target="_blank" class="group">
+                                                <address class="text-sm text-white not-italic leading-relaxed">
+                                                    1479, 2nd Floor, Thyagaraja Road<br>
+                                                    KR Mohalla, Mysuru - 570004
+                                                </address>
+                                                <span class="text-xs text-primary group-hover:underline mt-1 inline-block">View on Google Maps →</span>
+                                            </a>
+                                    </div>
+                                    </div>
+                                    </div>
+                            </div>
                         </div>
-                        <div class="text-gray-200 space-y-1">
-                            <div>Morning: 10:00 AM - 2:00 PM</div>
-                            <div>Evening: 4:00 PM - 8:00 PM</div>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-t border-white/10">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-300 font-medium">Sunday</span>
-                            <span class="text-red-500 text-xs font-semibold">CLOSED</span>
-                        </div>
+                        
+                        <div class="bg-white/5 rounded-lg p-5 border border-white/10 hover:bg-white/10 transition-all flex flex-col">
+                            <div class="flex-grow">
+                                <h5 class="text-xs text-gray-400 uppercase tracking-wider mb-4">Business Hours</h5>
+                                
+                                <div class="space-y-3">
+                                    <div class="pb-3 border-b border-white/10">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <span class="text-sm font-medium text-white">Monday - Saturday</span>
+                                            <span class="text-xs font-semibold text-green-500 bg-green-500/20 px-2 py-0.5 rounded">OPEN</span>
+                                        </div>
+                                        <div class="space-y-1 text-sm text-gray-300">
+                                            <div class="flex justify-between">
+                                                <span>Morning</span>
+                                                <span>10:00 AM - 2:00 PM</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Evening</span>
+                                                <span>4:00 PM - 8:00 PM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm font-medium text-white">Sunday</span>
+                                            <span class="text-xs font-semibold text-red-500 bg-red-500/20 px-2 py-0.5 rounded">CLOSED</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto pt-4">
+                                <a href="contact.html" class="block w-full bg-primary text-white text-center px-4 py-3 rounded-lg font-semibold hover:bg-primary-hover transition-all duration-300">
+                                    Schedule a Consultation
+                                </a>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Bottom Section -->
-        <div class="pt-8 border-t border-white/20">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <!-- Left: Copyright -->
-                <div class="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-6">
+        <div class="py-6 border-t border-white/10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-4">
                     <div class="text-center md:text-left">
-                        <p class="text-gray-300 text-sm">
+                        <p class="text-sm text-gray-300">
                             © <span id="current-year">2025</span> Sagar H R & Co. All Rights Reserved.
                         </p>
-                        <p class="text-xs text-gray-400 mt-1">
+                        <p class="text-xs text-gray-500 mt-0.5">
                             Registered with The Institute of Chartered Accountants of India
                         </p>
                     </div>
-                    <!-- LinkedIn Icon (Integrated naturally) -->
+                    
                     <a href="https://www.linkedin.com/in/sagar-h-r-507495261" 
                        target="_blank" 
                        rel="noopener noreferrer" 
-                       class="flex items-center justify-center w-10 h-10 bg-white/10 rounded-lg border border-white/20 hover:bg-primary/20 hover:border-primary/30 transition-all duration-300"
-                       aria-label="Connect on LinkedIn">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                       class="flex-shrink-0 w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary/30 transition-all"
+                       aria-label="LinkedIn">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
                     </a>
                 </div>
                 
-                <!-- Right: Legal Links -->
-                <div class="flex flex-wrap justify-center md:justify-end space-x-4 text-sm">
-                    <a href="/privacy-policy.html" class="footer-legal-link text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <nav class="flex items-center space-x-2 text-xs">
+                    <a href="/privacy-policy.html" class="text-gray-400 hover:text-white px-2 py-1 transition-colors">Privacy Policy</a>
                     <span class="text-gray-600">•</span>
-                    <a href="/terms-of-service.html" class="footer-legal-link text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="/terms-of-service.html" class="text-gray-400 hover:text-white px-2 py-1 transition-colors">Terms of Service</a>
                     <span class="text-gray-600">•</span>
-                    <a href="/disclaimer.html" class="footer-legal-link text-gray-400 hover:text-white transition-colors">Disclaimer</a>
-                </div>
+                    <a href="/disclaimer.html" class="text-gray-400 hover:text-white px-2 py-1 transition-colors">Disclaimer</a>
+                </nav>
             </div>
         </div>
     </div>
