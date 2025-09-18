@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Checklist for Form 10AB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles using the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f1f5f9; /* slate-100 */
+        }
+
+        /* --- Enhanced UI Styles --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        .checkbox {
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .checkbox.checked {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+        .checkbox.checked svg {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .document-title {
+            transition: color 0.25s ease;
+            position: relative;
+        }
+        .document-title::after {
+             content: '';
+             position: absolute;
+             top: 50%;
+             left: 0;
+             width: 0;
+             height: 2px;
+             background-color: #374151; /* gray-700 */
+             transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .item-checked .document-title {
+            color: #6b7280; /* gray-500 */
+        }
+        .item-checked .document-title::after {
+            width: 100%;
+        }
+
+        /* --- Print-Specific Styles --- */
+        @media print {
+            .no-print { display: none !important; }
+
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-color: #ffffff !important;
+                font-size: 10pt; /* Optimal print font size */
+            }
+
+                      
+            /* Prevent elements from breaking across a page */
+            .document-item, .section-header { 
+                page-break-inside: avoid; 
+            }
+
+            /* Reset container and main element for print */
+            .container { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+            main {
+                background-color: #ffffff !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            /* Simplify checklist items for print */
+            .document-item {
+                box-shadow: none !important;
+                border: 1px solid #cccccc !important;
+                background-color: #ffffff !important;
+                padding: 12px !important;
+            }
+            .document-item:hover { box-shadow: none !important; }
+
+            /* Simplify section headers for print */
+            .section-header span {
+                border: 1px solid #dee2e6;
+            }
+            .section-header h2 { font-size: 16pt; }
+            
+            /* Ensure checkboxes are clearly visible and marked */
+            .checkbox { border: 2px solid #adb5bd !important; }
+            .checkbox.checked { background-color: #495057 !important; }
+            .checkbox.checked svg { stroke: #fff !important; }
+        }
+        
+        @page { 
+            size: A4; 
+            margin: 20mm; 
+        }
+
+        /* --- Added for Print Footer --- */
+        @media print {
+            @page {
+                @bottom-left {
+                    content: "Sagar H R & Co.";
+                    font-family: 'Inter', sans-serif;
+                    font-size: 8pt;
+                    color: #71717a; /* zinc-500 */
+                    padding-bottom: 5mm;
+                }
+                @bottom-right {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-family: 'Inter', sans-serif;
+                    font-size: 8pt;
+                    color: #71717a; /* zinc-500 */
+                    padding-bottom: 5mm;
+                }
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-gray-800">
+
+    <div class="container relative z-10 mx-auto max-w-5xl p-4 sm:p-6 md:p-8">
+
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4 no-print">
+            <div>
+                <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Detailed Document Checklist for Form 10AB</h1>
+                <p class="text-gray-600 mt-1">Renewal of Registration u/s 12AB or Approval u/s 80G</p>
+            </div>
+            <button onclick="window.print()" class="flex items-center gap-2.5 bg-blue-600 text-white font-semibold py-2.5 px-6 rounded-full shadow-lg shadow-blue-500/30 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300 transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                <span>Print or Save as PDF</span>
+            </button>
+        </header>
+
+        <div class="hidden print:block text-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-900">Detailed Document Checklist for Form 10AB</h1>
+            <p class="text-lg text-gray-600 mt-2">Renewal of Registration u/s 12AB or Approval u/s 80G</p>
+            <hr class="mt-4">
+        </div>
+
+        <main class="bg-white rounded-2xl shadow-lg border border-gray-200/80 p-6 sm:p-10">
+
+            <script>
+                const sections = [
+                    {
+                        id: 'I',
+                        title: 'Incorporation Documents',
+                        color: 'from-indigo-500 to-violet-500',
+                        textColor: 'text-indigo-600',
+                        items: [
+                             { num: 1, title: "Self-certified copy of the <span class='text-blue-600 font-semibold'>organization's PAN Card</span>.", desc: "A self-certified copy of the PAN card issued in the name of the trust or institution." },
+                            { num: 2, title: "Self-Certified copy of the <span class='text-blue-600 font-semibold'>instrument creating the Trust or establishing the Institution</span>.", desc: "Self-certified copy of the registration with Registrar of Companies or Registrar of Firms and Societies or Registrar of Public Trust, as the case may be.", subDocs: { title: 'Constitutional Documents Required:', list: ['For a <b>Trust</b>: Trust Deed', 'For a <b>Society</b>: Society Registration Certificate, along with the MOA, Byelaws and Rules & Regulations', 'For a <b>Section 8 Company</b>: Certificate of Incorporation, along with the MOA and Articles of Association'] }, note: { title: 'Mandatory Clauses Check:', list: ['Investment clauses', 'Accounts clause', 'Amendment clause', 'Dissolution clause', 'Irrevocability clause', 'Beneficiary clause', 'Utilisation clause']}},
+                            { num: 3, title: "Self-certified copy of documents evidencing <span class='text-blue-600 font-semibold'>adoption or modification of the objects</span>, if any.", desc: "Any supplementary deeds, resolutions, or amendments made to the original constitutional documents that modify the objects or governance structure." },
+                            { num: 4, title: "Self-Certified Copy of <span class='text-blue-600 font-semibold'>existing order granting registration u/s 12AB</span>.", desc: "Existing 12AB Registration Certificate, typically in <span class='text-blue-600 font-semibold'>Form 10AC or 10AD</span>." },
+                            { num: 5, title: "Self-Certified Copy of <span class='text-blue-600 font-semibold'>existing order granting approval u/s 80G</span>.", desc: "Existing 80G Approval Certificate, typically in <span class='text-blue-600 font-semibold'>Form 10AC or 10AD</span>." },
+                            { num: 6, title: "<span class='text-blue-600 font-semibold'>Previous Rejection Orders</span> (If Applicable).", desc: "If any application for registration under section 12A/12AA/12AB was rejected, provide the self-certified copy of the rejection order and reasons." },
+                            { num: 7, title: "<span class='text-blue-600 font-semibold'>NITI Aayog DARPAN ID</span>.", desc: "<span class='text-red-600 font-bold'>Mandatory</span> for charitable organisations. The DARPAN portal registration must be active and the profile updated." },
+                            { num: 8, title: "Self-certified copy of <span class='text-blue-600 font-semibold'>FCRA Registration</span> (Foreign Contribution Regulation Act, 2010).", desc: "If applicable - Required only if the organization receives foreign contributions." },
+                            { num: 9, title: "<span class='text-blue-600 font-semibold'>Address Proof</span> for the Registered Office.", desc: "Lease agreement, recent utility bill, or tax receipt (within 2 months) evidencing the existence at the stated address." },
+                            { num: 10, title: "<span class='text-blue-600 font-semibold'>Sector-Specific Permissions/Approvals</span>.", desc: "If the institution runs educational institutions, hospitals, orphanages etc., provide permissions from concerned authorities.", subDocs: { title: 'Sector-specific licenses (if applicable):', list: ['Educational: Board/University recognition, AICTE/UGC approvals', 'Healthcare: Hospital registration, medical licenses, drug license', 'Others: Old age home/orphanage permissions, food safety licenses']}},
+                        ]
+                    },
+                    {
+                        id: 'II',
+                        title: 'Financial Documents (Last 3 Financial Years)',
+                        color: 'from-teal-500 to-cyan-500',
+                        textColor: 'text-teal-600',
+                        items: [
+                           { num: 1, title: "<span class='text-blue-600 font-semibold'>Audited Financial Statements</span>.", desc: "Complete set for the last three financial years, duly signed by the auditor with stamp and membership number.", subDocs: { title: 'Must include:', list: ['Income & Expenditure Account', 'Balance Sheet', 'Receipts & Payments Account']} },
+                           { num: 2, title: "<span class='text-blue-600 font-semibold'>Audit Reports (Form 10B/10BB)</span> with UDIN.", desc: "Audit reports for the last three financial years. Must contain UDIN (Unique Document Identification Number) and specify compliance with Section 13 provisions." },
+                           { num: 3, title: "<span class='text-blue-600 font-semibold'>Income Tax Returns</span>.", desc: "<span class='text-blue-600 font-semibold'>ITR-7</span> acknowledgments with computation of income for 3 assessment years." },
+                           { num: 4, title: "<span class='text-blue-600 font-semibold'>Provisional Financial Statements</span> for the current Financial Year.", desc: "Unaudited financial statements for the current financial year, certified by the authorized signatory." },
+                           { num: 5, title: "<span class='text-blue-600 font-semibold'>Bank Statements</span> of all accounts.", desc: "Schedule showing list of all accounts, along with bank statements of all accounts for the last 3 years." },
+                           { num: 6, title: "<span class='text-blue-600 font-semibold'>Investment Details</span> as per Section 11(5).", desc: "List of FDs, mutual funds and other Section 11(5) specified investments." },
+                           { num: 7, title: "List of <span class='text-blue-600 font-semibold'>Immovable Property Details</span>.", desc: "Complete details of all immovable properties owned by the institution.", subDocs: { title: 'Required information for each property:', list: ['Complete address of the property', 'Year of purchase/acquisition', 'Cost of purchase', 'Area in square metres']}},
+                        ]
+                    },
+                    {
+                        id: 'III',
+                        title: 'Activity Documentation',
+                        color: 'from-sky-500 to-blue-500',
+                        textColor: 'text-sky-600',
+                        items: [
+                           { num: 1, title: "<span class='text-blue-600 font-semibold'>Detailed Activity Report</span> for the last 3 years.", desc: "Comprehensive report of activities undertaken, demonstrating the charitable nature of activities.", subDocs: { title: 'Report must include:', list: ['Detailed description of each activity/project', 'Number of beneficiaries served', 'Geographic areas covered, etc.']} },
+                           { num: 2, title: "<span class='text-blue-600 font-semibold'>Supporting Evidence</span> of Activities.", desc: "Documentary evidence to substantiate the activities claimed in the activity report.", subDocs: { title: 'Include relevant documents such as:', list: ['Brochures and Photographs of events with dates', 'Media coverage and press releases', 'Letters of appreciation, etc.']}},
+                        ]
+                    },
+                    {
+                        id: 'IV',
+                        title: 'Governance Details',
+                        color: 'from-slate-600 to-gray-600',
+                        textColor: 'text-slate-700',
+                        items: [
+                           { num: 1, title: "Complete <span class='text-blue-600 font-semibold'>List of Trustees/Directors/Members</span>.", desc: "Comprehensive details of all persons involved in the governance and management of the institution, including key management personnel.", subDocs: { title: 'Required information for each person:', list: ['Full Name & Complete Address', 'PAN & Aadhaar Number', 'Mobile Number & Email ID', 'Designation in the organization', 'Educational Qualifications & Current Occupation', 'Credit history and criminal history, if any', 'Details of any other Trust/Society associated with']} }
+                        ]
+                    }
+                ];
+
+                function createSection(sectionData, index) {
+                    let itemsHtml = sectionData.items.map(item => `
+                        <div class="document-item bg-slate-50/70 rounded-xl p-5 transition-all duration-300 hover:shadow-lg hover:ring-2 hover:ring-blue-500/30 hover:bg-white">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 bg-white text-gray-500 font-semibold w-8 h-8 flex items-center justify-center rounded-lg border border-gray-200">${item.num}</div>
+                                <div class="flex-grow">
+                                    <h3 class="document-title font-semibold text-gray-800">${item.title}</h3>
+                                    ${item.desc ? `<p class="text-sm text-gray-600 mt-1.5">${item.desc}</p>` : ''}
+                                </div>
+                                <div class="checkbox flex-shrink-0 w-6 h-6 border-2 border-gray-400/80 rounded-lg bg-white mt-1 flex items-center justify-center">
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white transform scale-0 opacity-0 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            ${item.subDocs ? `<div class="mt-4 ml-12 bg-slate-100 p-4 rounded-xl border border-slate-200"><h4 class="text-sm font-semibold text-gray-700 mb-2">${item.subDocs.title}</h4><ul class="list-disc list-inside space-y-1.5 text-sm text-gray-600">${item.subDocs.list.map(li => `<li>${li}</li>`).join('')}</ul></div>` : ''}
+                            ${item.note ? `<div class="mt-4 ml-12 bg-amber-100/60 border-l-4 border-amber-500 p-4 rounded-lg"><h4 class="font-semibold text-amber-900 text-sm">${item.note.title}</h4><ul class="list-disc list-inside space-y-1.5 text-sm text-amber-800 mt-2">${item.note.list.map(li => `<li>${li}</li>`).join('')}</ul></div>` : ''}
+                        </div>
+                    `).join('');
+
+                    const pageBreakClass = index > 0 ? 'print-break-before' : '';
+
+                    return `
+                        <section class="${pageBreakClass}">
+                            <div class="section-header flex items-center gap-4 mb-6 pb-3 border-b-2 border-slate-200">
+                                <span class="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${sectionData.color} text-white font-bold text-lg shadow-md">${sectionData.id}</span>
+                                <h2 class="text-2xl font-bold ${sectionData.textColor}">${sectionData.title}</h2>
+                            </div>
+                            <div class="space-y-4">
+                                ${itemsHtml}
+                            </div>
+                        </section>
+                    `;
+                }
+                
+                document.addEventListener('DOMContentLoaded', () => {
+                    const container = document.getElementById('checklist-container');
+                    if(container) {
+                        container.innerHTML = sections.map((section, index) => createSection(section, index)).join('');
+                        container.addEventListener('click', function(event) {
+                            const checkbox = event.target.closest('.checkbox');
+                            if (checkbox) {
+                                checkbox.classList.toggle('checked');
+                                checkbox.closest('.document-item').classList.toggle('item-checked');
+                            }
+                        });
+                    }
+                });
+            </script>
+            
+            <div id="checklist-container" class="space-y-16">
+                </div>
+
+        </main>
+        
+    </div>
+
+</body>
+</html>
